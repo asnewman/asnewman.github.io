@@ -12,6 +12,57 @@
 			<link>https://asnewman.github.io/</link>
 		</image>
     <item>
+			<title>30 Days 30 Minutes</title>
+			<link>https://asnewman.github.io/30days30minutes</link>
+			<pubDate>Mon, 1 May 2023 05:40:00 GMT</pubDate>
+			<author>Ashley Newman</author>
+			<category>self-help</category>
+			<description><![CDATA[I am happy to report that I've completed 30 days straight of my 30 minutes daily challenge.]]></description>
+			<content:encoded><![CDATA[<div style="max-width: 600px;">
+        <p><a href="/">Home</a></p>
+        <h1>30 Days 30 Minutes</h1>
+        <p>I am happy to report that I&#39;ve completed 30 days straight of my <a
+                href="https://asnewman.github.io/30minutesaday">30 minutes daily challenge</a>. It took me 55 days to
+            complete due to a couple broken streaks. Looking back at my <a
+                href="https://asnewman.github.io/1week30minutes">7 day report</a>, I wanted to increase the amount of
+            time I spent in each session (e.g. more than 30 minutes). I can confidently say that the average time has
+            increased, though I don&#39;t have any concrete numbers since I didn&#39;t record any of it. I also have to
+            admit on some days I didn&#39;t complete a full 30 minutes, but I&#39;m happy I at least did some work.</p>
+
+        <p>Some of the things I worked on include:</p>
+
+        <ul>
+            <li>Rewriting (part of) simplestat.us in Python</li>
+            <li>Blog post <a href="https://asnewman.github.io/when-to-stop">When to Stop</a></li>
+            <li>Work on my &quot;fun&quot; editor</li>
+            <li>Blog post <a href="https://asnewman.github.io/self-help">Self-help</a></li>
+            <li><a href="https://nomodoom.com/">Nomodoom </a>bug fix</li>
+            <li><a href="https://just-read.vercel.app/">Just Read</a> project</li>
+            <li><a href="https://addons.mozilla.org/en-US/firefox/addon/just-read-text-to-speech/">Just Read</a> firefox
+                extension project</li>
+            <li>Work on a game project</li>
+            <li><a href="https://www.tiktok.com/@briefbitsvideos">Brief Bits</a> TikTok channel with 4 video uploads
+            </li>
+            <li>Blog post <a href="https://asnewman.github.io/positive-monster">Positive Monster</a></li>
+        </ul>
+
+        <p>You can find the exhaustive list on my <a href="https://twitter.com/edweirdsnowman">Twitter page</a>.</p>
+
+        <p>I&#39;m ecstatic that I could accomplish all the things above while having a full-time job and maintaining a
+            balanced life.</p>
+
+        <p>One thing that stands out to me is how dispersed my efforts were. I don&#39;t think that is a bad thing, but
+            I wonder how much I can get done if I focus on one thing for a set amount of time. As a result, my next
+            experiment will be to work on my game for 7 days straight.</p>
+
+        <p>I&#39;m still planning to continue the 30 minutes a day activity, but I will report less about it on my
+            Twitter page. Instead of daily posts, I will only report significant progress updates about my projects to
+            reduce spam. However, if I become inconsistent with the 30 minutes because of this, I will revert back to my
+            original posting schedule.</p>
+
+    </div>]]></content:encoded>
+		</item>
+    <item>
 			<title>Positive Monster</title>
 			<link>https://asnewman.github.io/positive-monster</link>
 			<pubDate>Wed, 26 Apr 2023 07:57:00 GMT</pubDate>
@@ -19,7 +70,6 @@
 			<category>self-help</category>
 			<description><![CDATA[I’m watching a Japanese show on Netflix called “The Full-Time Wife Escapist”. At one point in the show, a man calls a woman a “Positive Monster”, which she then nicknames “Posimon”.]]></description>
 			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <p><a href="/">Home</a></p>
       <h1>Positive Monster</h1>
       <p>I’m watching a Japanese show on Netflix called “The Full-Time Wife Escapist”. At one point in the show, a man calls a woman a “Positive Monster”, which she then nicknames “Posimon”.</p>
       <img src="https://i.imgur.com/S5ksFUA.png" alt="posimon" style="max-width:600px;width:100%" />
@@ -34,7 +84,6 @@
 			<category>self-help</category>
 			<description><![CDATA[I was on the plane the other day writing my blog post “When to Quit” when I started to think about self-help.]]></description>
 			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <p><a href="/">Home</a></p>
       <h1>Self-help</h1>
       <p>I was on the plane the other day writing my blog post <a href="/when-to-quit">&ldquo;When to Quit&rdquo;</a> when I started to think about self-help.<br>
       Why is it so popular?<br>
