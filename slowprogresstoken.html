@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Code</title>
+    <style>
+        .code-container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .code-container pre {
+            white-space: pre-wrap;       /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="codeContainer" class="code-container">
+        <!-- The code will be displayed here -->
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get('code'); // "code" is the URL parameter we expect
+            if (code) {
+                const formattedCode = decodeURIComponent(code).replace(/</g, "&lt;").replace(/>/g, "&gt;"); // Basic HTML escape
+                document.getElementById('codeContainer').innerHTML = `<pre>${formattedCode}</pre>`;
+            }
+        });
+    </script>
+</body>
+</html>
