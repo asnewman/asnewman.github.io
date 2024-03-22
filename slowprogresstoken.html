@@ -6,7 +6,6 @@
     <title>Display Code</title>
     <style>
         .code-container {
-            position: relative;
             margin: 20px;
             padding: 20px;
             border: 1px solid #ddd;
@@ -16,52 +15,47 @@
 
         .code-container pre {
             white-space: pre-wrap;
-            white-space: -moz-pre-wrap;
-            white-space: -pre-wrap;
-            white-space: -o-pre-wrap;
-            word-wrap: break-word;
             font-family: monospace;
         }
 
-        .copy-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 5px 10px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+        .instructions {
+            margin: 20px;
+            font-size: 16px;
         }
 
-        .copy-button:hover {
-            background-color: #45a049;
+        button {
+            margin: 10px 0;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <div class="instructions">
+        Copy the token below and paste it back into the "SlowProgress" app to proceed:
+    </div>
     <div id="codeContainer" class="code-container">
         <!-- The code will be displayed here -->
-        <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
     </div>
+    <button onclick="copyCode()">Copy Token</button>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const params = new URLSearchParams(window.location.search);
             const code = params.get('code');
             if (code) {
                 const formattedCode = decodeURIComponent(code).replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                document.getElementById('codeContainer').innerHTML += `<pre>${formattedCode}</pre>`;
+                document.getElementById('codeContainer').innerHTML = `<pre>${formattedCode}</pre>`;
             }
         });
 
-        function copyToClipboard() {
+        function copyCode() {
             const codeText = document.querySelector('#codeContainer pre').innerText;
             navigator.clipboard.writeText(codeText).then(() => {
-                alert('Code copied to clipboard!');
-            }, (err) => {
-                alert('Failed to copy code: ', err);
+                alert('Token copied to clipboard!');
+            }).catch(err => {
+                console.error('Error in copying text: ', err);
             });
         }
     </script>
