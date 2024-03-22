@@ -6,6 +6,7 @@
     <title>Display Code</title>
     <style>
         .code-container {
+            position: relative;
             margin: 20px;
             padding: 20px;
             border: 1px solid #ddd;
@@ -14,28 +15,55 @@
         }
 
         .code-container pre {
-            white-space: pre-wrap;       /* Since CSS 2.1 */
-            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-            white-space: -pre-wrap;      /* Opera 4-6 */
-            white-space: -o-pre-wrap;    /* Opera 7 */
-            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
             font-family: monospace;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .copy-button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div id="codeContainer" class="code-container">
         <!-- The code will be displayed here -->
+        <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const params = new URLSearchParams(window.location.search);
-            const code = params.get('code'); // "code" is the URL parameter we expect
+            const code = params.get('code');
             if (code) {
-                const formattedCode = decodeURIComponent(code).replace(/</g, "&lt;").replace(/>/g, "&gt;"); // Basic HTML escape
-                document.getElementById('codeContainer').innerHTML = `<pre>${formattedCode}</pre>`;
+                const formattedCode = decodeURIComponent(code).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                document.getElementById('codeContainer').innerHTML += `<pre>${formattedCode}</pre>`;
             }
         });
+
+        function copyToClipboard() {
+            const codeText = document.querySelector('#codeContainer pre').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                alert('Code copied to clipboard!');
+            }, (err) => {
+                alert('Failed to copy code: ', err);
+            });
+        }
     </script>
 </body>
 </html>
