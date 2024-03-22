@@ -3,42 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Code</title>
+    <title>Retrieve Your Token</title>
     <style>
-        .code-container {
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
-        .code-container pre {
-            white-space: pre-wrap;
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .code-container {
+            background-color: #eef;
+            border-left: 5px solid #5D5C61;
+            margin: 20px 0;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        pre {
+            margin: 0;
             font-family: monospace;
+            overflow: auto;
         }
 
         .instructions {
-            margin: 20px;
-            font-size: 16px;
+            font-size: 18px;
+            color: #555;
         }
 
         button {
-            margin: 10px 0;
-            padding: 10px 15px;
-            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="instructions">
-        Copy the token below and paste it back into the "SlowProgress" app to proceed:
+    <div class="container">
+        <div class="instructions">
+            Please copy the token below and paste it back into the "SlowProgress" app to continue.
+        </div>
+        <div id="codeContainer" class="code-container">
+            <!-- The code will be displayed here -->
+        </div>
+        <button onclick="copyCode()">Copy Token</button>
     </div>
-    <div id="codeContainer" class="code-container">
-        <!-- The code will be displayed here -->
-    </div>
-    <button onclick="copyCode()">Copy Token</button>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
