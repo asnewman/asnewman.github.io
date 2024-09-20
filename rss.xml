@@ -1,448 +1,338 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
+<rss version="2.0"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/">
+	<channel>
 		<title>ajkprojects</title>
 		<link>https://asnewman.github.io/</link>
 		<description></description>
 		<language>en-us</language>
-		<copyright><![CDATA[ Ashley Newman ]]></copyright>
+		<copyright>
+			<![CDATA[ Ashley Newman ]]>
+		</copyright>
 		<image>
 			<url>https://avatars.githubusercontent.com/u/15795866?v=4</url>
 			<title>ajkprojects</title>
 			<link>https://asnewman.github.io/</link>
 		</image>
-
-	  <item>
+		<item>
+			<title>Talk Less in Meetings</title>
+			<link>https://ajkprojects.com/talklessinmeetings</link>
+			<pubDate>Tue, 20 Sep 2024 06:08:00 GMT</pubDate>
+			<author>ashleynewman@protonmail.com (Ash)</author>
+			<category>work</category>
+			<description>
+				<![CDATA[Strive to be the most impactful person in the room, not the loudest.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px"><p><a href="/">Home</a></p><h1>Talk Less in Meetings</h1><p>
+        My first manager noticed something I did unintentionally in meetings
+        early in my career. He told me I was quiet in meetings, but everyone
+        listened carefully on the rare occasions I spoke. He explained this was
+        a great trait: striving to be the most impactful person in the room, not
+        the loudest.
+      </p><p>
+        The truth is, I was probably either overwhelmed trying to absorb
+        information (I was a super junior engineer at the time) or nervous/shy
+        to speak whatever was on my mind. Nonetheless, my manager’s words have
+        stuck with me throughout my career.
+      </p><p>
+        The advice to focus on fewer, more impactful words is hard for some
+        people to hear, especially for those who equate more words to more
+        intelligence and influence. But there are two strong reasons why I think
+        that mindset is not optimal:
+      </p><p>
+        1. The longer you go without speaking, the more time you have to gain
+        context and think through your thoughts.
+      </p><p>
+        Raw thoughts are great during brainstorming sessions. However, in other
+        settings, they can derail the conversation and even cause the speaker to
+        confuse themselves. The longer you let thoughts in your mind sit, the
+        more well-formed and valuable they will be when they come out of your
+        mouth.
+      </p><p>
+        2. The more time you spend listening, the more you can learn from your
+        peers.
+      </p><p>
+        For this one, the adage “If you're the smartest person in the room,
+        you're in the wrong room” comes to mind. But I don’t think it’s ever
+        possible to be in “the wrong room.” It may be true that you can be the
+        most knowledgeable about a specific topic. Still, regardless of
+        experience or background, every person has the potential to contribute
+        novel ideas. In fact, sometimes the lack of experience is precisely what
+        you need for a fresh perspective to be discovered.
+      </p><p>
+        Along the same lines, I love the idea of treating everyone as your
+        “master” because that mindset will inevitably result in learning
+        something from anyone who shares ideas and asks questions. The problem
+        is, if you talk too much, you don’t allow those ideas and questions to
+        be shared.
+      </p><p>
+        The goal is not to remain silent but to strike a balance between
+        speaking and listening. If you have a great idea, don’t hesitate to
+        share it. But if you walk away from a meeting feeling like you dominated
+        the conversation, there’s a good chance the entire group missed out on
+        something great.
+      </p></div>]]>
+			</content:encoded>
+		</item>
+		<item>
 			<title>Micro-dosing Caffeine</title>
 			<link>https://ajkprojects.com/microdosingcaffeine</link>
 			<pubDate>Tue, 7 May 2024 19:20:00 GMT</pubDate>
 			<author>ashleynewman@protonmail.com (Ash)</author>
 			<category>productivity</category>
-			<description><![CDATA[How I manage my caffeine intake.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <p><a href="/">Home</a></p>
-      <h1>Micro-dosing Caffeine</h1>
-      <p style="margin-top: -10px; font-size: .7rem;">How I manage my caffeine intake.</p>
-      <p>I was late to the game when it comes to caffeine exposure. Since high school, I’ve struggled with migraines, and because caffeine is a well-known trigger, I stayed away from it as much as possible.</p>
-      <p>In college, I remember feeling jealous of people using and abusing caffeine. To be able to legally ingest a substance that helped you stay awake and focused before exams almost felt like an unfair advantage to me.</p>
-      <p>A year and a half ago, noticing a decrease in my migraine frequency, I became curious about the real-world benefits of caffeine. Based on what I saw in college and finding out that Bill Gates and John Carmack are both Diet Coke addicts, I had high expectations.</p>
-      <p>So I went and got a can of Coke and drank it during work. As this was essentially my first caffeine experience, I was highly sensitive and became instantly wired. The hype in my head was real. I got so much work done that day and I couldn’t help but feel that all this time I’d been operating in a slower-paced, less-focused universe compared to my peers.</p>
-      <p>I was so excited that I raved about my experience with a few people I knew. Most people laughed and many were envious about how effective one can of coke was to me. I soon came to find that a lot of my peers require far more caffeine just to be at a baseline level of operation.</p>
-      <p>I decided to do some research on YouTube where I found people like Wheezy Waiter, Beau Miles, and Christian Schaffer all suffering from caffeine withdrawals during experiments where they stopped drinking coffee.</p>
-      <p>I realized that caffeine addiction is real, and once you are hooked, the powerful benefits that I experienced are far less potent. So I came up with a plan to manage my caffeine intake that I’ve stuck to for over a year now.</p>
-      <p>My general rules are the following:</p>
-      <ul>
-        <li>I don’t exceed 60 mg of caffeine in one day. To give perspective, a can of Diet Coke is 46mg. A grande latte from Starbucks is 150mg. Therefore, I cannot drink a fully caffeinated latte drink.</li>
-        <li>I only drink caffeine on days that I need the extra boost to be productive. I am very intentional about not wasting it on days that require less productivity.</li>
-        <li>I limit myself to a maximum of four caffeine days per week, ideally fewer.</li>
-        <li>I avoid caffeinated drinks that are customized. Starbucks gives the option to get 1/3, 1/2, 2/3, caffeinated beverages. This is great because it opens up many caffeine options, but I don’t like to do it too often as I’ve had a few too many times where the barista makes the drink incorrectly. Because of my high caffeine sensitivity, I realize quickly when a drink has more caffeine than I’m used to. For this reason, when I do go to Starbucks, I tend to get a Tall Matcha Latte (55mg of caffeine).</li>
-        <li>I do my best to keep caffeine sources out of immediate reach. I have some green tea at home, but generally, I make it so I have to leave the house to source my caffeine. This makes me intentional about marking a day for more-than-normal productivity needs.</li>
-      </ul>
-      <p>Following these rules, I can effectively micro-dose caffeine, enjoying its potent effects from just a can of Coke without any dependency side effects. It’s great to have something that can reliably increase my mental performance when I need it.</p>
-      <p>I know caffeine affects people differently, so I’d love to hear how other people manage their caffeine intake (even if it is complete dependence).  Please email me at ashleynewman@protonmail.com to start a conversation.</p>
-    </div>]]></content:encoded>
+			<description>
+				<![CDATA[How I manage my caffeine intake.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><p><a href="/">Home</a></p><h1>Micro-dosing Caffeine</h1><p style="margin-top: -10px; font-size: .7rem;">How I manage my caffeine intake.</p><p>I was late to the game when it comes to caffeine exposure. Since high school, I’ve struggled with migraines, and because caffeine is a well-known trigger, I stayed away from it as much as possible.</p><p>In college, I remember feeling jealous of people using and abusing caffeine. To be able to legally ingest a substance that helped you stay awake and focused before exams almost felt like an unfair advantage to me.</p><p>A year and a half ago, noticing a decrease in my migraine frequency, I became curious about the real-world benefits of caffeine. Based on what I saw in college and finding out that Bill Gates and John Carmack are both Diet Coke addicts, I had high expectations.</p><p>So I went and got a can of Coke and drank it during work. As this was essentially my first caffeine experience, I was highly sensitive and became instantly wired. The hype in my head was real. I got so much work done that day and I couldn’t help but feel that all this time I’d been operating in a slower-paced, less-focused universe compared to my peers.</p><p>I was so excited that I raved about my experience with a few people I knew. Most people laughed and many were envious about how effective one can of coke was to me. I soon came to find that a lot of my peers require far more caffeine just to be at a baseline level of operation.</p><p>I decided to do some research on YouTube where I found people like Wheezy Waiter, Beau Miles, and Christian Schaffer all suffering from caffeine withdrawals during experiments where they stopped drinking coffee.</p><p>I realized that caffeine addiction is real, and once you are hooked, the powerful benefits that I experienced are far less potent. So I came up with a plan to manage my caffeine intake that I’ve stuck to for over a year now.</p><p>My general rules are the following:</p><ul><li>I don’t exceed 60 mg of caffeine in one day. To give perspective, a can of Diet Coke is 46mg. A grande latte from Starbucks is 150mg. Therefore, I cannot drink a fully caffeinated latte drink.</li><li>I only drink caffeine on days that I need the extra boost to be productive. I am very intentional about not wasting it on days that require less productivity.</li><li>I limit myself to a maximum of four caffeine days per week, ideally fewer.</li><li>I avoid caffeinated drinks that are customized. Starbucks gives the option to get 1/3, 1/2, 2/3, caffeinated beverages. This is great because it opens up many caffeine options, but I don’t like to do it too often as I’ve had a few too many times where the barista makes the drink incorrectly. Because of my high caffeine sensitivity, I realize quickly when a drink has more caffeine than I’m used to. For this reason, when I do go to Starbucks, I tend to get a Tall Matcha Latte (55mg of caffeine).</li><li>I do my best to keep caffeine sources out of immediate reach. I have some green tea at home, but generally, I make it so I have to leave the house to source my caffeine. This makes me intentional about marking a day for more-than-normal productivity needs.</li></ul><p>Following these rules, I can effectively micro-dose caffeine, enjoying its potent effects from just a can of Coke without any dependency side effects. It’s great to have something that can reliably increase my mental performance when I need it.</p><p>I know caffeine affects people differently, so I’d love to hear how other people manage their caffeine intake (even if it is complete dependence).  Please email me at ashleynewman@protonmail.com to start a conversation.</p></div>]]>
+			</content:encoded>
 		</item>
-	  
-	<item>
+		<item>
 			<title>Stop Acting Like You're Famous</title>
 			<link>https://ajkprojects.com/stopactinglikeyourefamous</link>
 			<pubDate>Tue, 16 Apr 2024 05:40:00 GMT</pubDate>
 			<author>ashznewman@gmail.com (Ash)</author>
 			<category>self-help</category>
-			<description><![CDATA[Advice for myself around leisure activities.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <h1>Stop Acting Like You're Famous</h1>
-      <p style="margin-top: -10px; font-size: .7rem;">Advice for myself around leisure activities.</p>
-      <p>You aren’t famous. Anything you do or create will probably receive little to no attention, so stop optimizing for a non-existent audience and instead focus on what makes you enjoy the activity. </p>
-      <p>Want to try a craft or artistic hobby? Focus on mastering the skill and enjoy the variety it can provide. You don’t need to build a personal style. No one will care. Want to do photography and think black and white photos are cool? Great! You don’t need to create an Instagram branded all around your moody black and white photos. Most likely you’ll get bored of it and want to try a different type of photography, and that’s great. You aren’t Ansel Adams, no one will care if your “style” is all over the place.</p>
-      <p>Do you want to build an app or website but don’t enjoy the process of designing? Then make it ugly. Who cares! Design is for an audience and you don’t have one. Functionality is more important right now. Maybe a designer will notice and want to improve it for you, but until then take pride in your crappy UI. </p>
-      <p>Blogging is fun and therapeutic. Grammar and editing aren’t. As long as your thoughts are coherent, don’t worry too much about writing mistakes or filtering yourself. Just use Grammarly to fix elementary-level errors and move on. It’s more about the writing process than the final product.</p>
-      <p>The most egregious thing you can do with any activity is daydream about how you can make money off of it. That’s the quickest way to optimize for the wrong things and suck the fun right out of it. Most likely you will stop doing the activity almost immediately, so save the money-making schemes for work.</p>
-      <p>In the end, find something you enjoy doing and just do it because you enjoy it. If you have to, make some goals for yourself, but never for your “audience”.</p>
-    </div>]]></content:encoded>
+			<description>
+				<![CDATA[Advice for myself around leisure activities.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><h1>Stop Acting Like You're Famous</h1><p style="margin-top: -10px; font-size: .7rem;">Advice for myself around leisure activities.</p><p>You aren’t famous. Anything you do or create will probably receive little to no attention, so stop optimizing for a non-existent audience and instead focus on what makes you enjoy the activity. </p><p>Want to try a craft or artistic hobby? Focus on mastering the skill and enjoy the variety it can provide. You don’t need to build a personal style. No one will care. Want to do photography and think black and white photos are cool? Great! You don’t need to create an Instagram branded all around your moody black and white photos. Most likely you’ll get bored of it and want to try a different type of photography, and that’s great. You aren’t Ansel Adams, no one will care if your “style” is all over the place.</p><p>Do you want to build an app or website but don’t enjoy the process of designing? Then make it ugly. Who cares! Design is for an audience and you don’t have one. Functionality is more important right now. Maybe a designer will notice and want to improve it for you, but until then take pride in your crappy UI. </p><p>Blogging is fun and therapeutic. Grammar and editing aren’t. As long as your thoughts are coherent, don’t worry too much about writing mistakes or filtering yourself. Just use Grammarly to fix elementary-level errors and move on. It’s more about the writing process than the final product.</p><p>The most egregious thing you can do with any activity is daydream about how you can make money off of it. That’s the quickest way to optimize for the wrong things and suck the fun right out of it. Most likely you will stop doing the activity almost immediately, so save the money-making schemes for work.</p><p>In the end, find something you enjoy doing and just do it because you enjoy it. If you have to, make some goals for yourself, but never for your “audience”.</p></div>]]>
+			</content:encoded>
 		</item>
-	<item>
+		<item>
 			<title>No More Alarm Clocks</title>
 			<link>https://asnewman.github.io/nomorealarmclocks</link>
 			<pubDate>Thu, 16 Nov 2023 05:40:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>self-help</category>
-			<description><![CDATA[I’ve completely eliminated the alarm clock from my morning routine for about six months.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-<h1 id="no-more-alarm-clocks">No More Alarm Clocks</h1>
-<p>I’ve completely eliminated the alarm clock from my morning routine for about six months. The biggest impacts it&#39;s had on my life are:</p>
-<ol>
-<li>I’ve become a morning person.</li>
-<li>I wake up feeling great and feel less sleepy during the day.</li>
-</ol>
-<p>Becoming a morning person is a necessary side effect of not using an alarm clock because it requires the body to naturally wake up early enough for work, school, or other regular obligations. Although I’ve historically enjoyed staying up late, the brutal truth is that all humans require a certain amount of sleep, and this can&#39;t be consistently fought without an alarm clock.</p>
-<p>The best part about eliminating alarm clocks from my life is how it has affected my day. It’s not a hidden secret that good sleep habits translate to:</p>
-<ol>
-<li>Better mood</li>
-<li>Increased energy levels</li>
-<li>Clearer mind</li>
-<li>Improved overall health</li>
-</ol>
-<p>I can confidently say I really do feel all these benefits. It's to no suprise. The alarm clock interupts one of the most important cycles of your body, and so it only makes sense to leave sleep alone so it can do what it needs to do.</p>
-<h2 id="how-i-transitioned-to-natural-sleep">How I Transitioned to Natural Sleep</h2>
-<p>Once I decided to try this experiment, I created a simple plan to implement it. Before this life change, my sleep schedule was from around 1 am to 8 am. So, the first thing I did was set an alarm for the target time I wanted to naturally wake up, in my case, 7 am.</p>
-<p>The first night resulted in 6 hours of sleep (1 am to 7 am). My body needs more than that, so by the time 11 pm rolled around, I was ready to fall asleep. It was initially tough to sleep earlier than normal, as I felt there was still time to do things, but I let my body dictate my actions and went to bed without an alarm.</p>
-<p>That night, I slept for about 9 hours due to sleep debt. I missed my 7 am target, but it wasn’t a big deal. After that, with my body reset, I simply aimed to continue to sleep around 11 pm, meaning I was in bed by 10:30 pm. The pressure of needing to naturally wake up before work was enough motivation to forgo the later hours of the night and continue heading to bed early.</p>
-<p>Now, I’ve settled into a great rhythm of going to bed around 10-10:30 pm and waking up around 6:30 am. What’s great is discovering how much sleep my body naturally needs (8-8.5 hours). No more trying to &quot;hack&quot; my body with things like miserable polyphasic sleep experiments. I know what my body needs, I succumb to it, and I’m rewarded the next day.</p>
-<h2 id="some-caveats">Some Caveats</h2>
-<p>What worked for me won’t necessarily work for everyone. Each person and their situation is unique, so results will obviously vary. Some unique factors for me are:</p>
-<ul>
-<li>I’ve always been able to fall asleep quickly, which might be due to consistent sleep deprivation, regular exercise, or both.</li>
-<li>My only dependent is a dog, and she doesn’t mind sleeping in a bit in the morning.</li>
-<li>I always sleep with white noise, which helps block out sounds that would normally wake me up during the night.</li>
-<li>My work schedule is consistently 9 am to 5 pm.</li>
-</ul>
-<p>One final note: I still use alarm clocks for special occasions, such as early morning flights. Although I could probably wake up naturally for them, I would probably wake up in the middle of the night stressed about the possibility of missing my flight without an alarm set.</p>
-<h2 id="try-it-out">Try It Out</h2>
-<p>This change has been significant enough in my life that I frequently recommend it to friends. I now honestly believe that the alarm clock is the single worst thing the wider population willingly inflicts on themselves. If you’re willing to eliminate the morning alarm clock from your life, I would love to hear how it goes. Feel free to email me at <a href="mailto:ashleynewman@protonmail.com">ashleynewman@protonmail.com</a>. Good luck!</p>
-
-    </div>]]></content:encoded>
+			<description>
+				<![CDATA[I’ve completely eliminated the alarm clock from my morning routine for about six months.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><h1 id="no-more-alarm-clocks">No More Alarm Clocks</h1><p>I’ve completely eliminated the alarm clock from my morning routine for about six months. The biggest impacts it&#39;s had on my life are:</p><ol><li>I’ve become a morning person.</li><li>I wake up feeling great and feel less sleepy during the day.</li></ol><p>Becoming a morning person is a necessary side effect of not using an alarm clock because it requires the body to naturally wake up early enough for work, school, or other regular obligations. Although I’ve historically enjoyed staying up late, the brutal truth is that all humans require a certain amount of sleep, and this can&#39;t be consistently fought without an alarm clock.</p><p>The best part about eliminating alarm clocks from my life is how it has affected my day. It’s not a hidden secret that good sleep habits translate to:</p><ol><li>Better mood</li><li>Increased energy levels</li><li>Clearer mind</li><li>Improved overall health</li></ol><p>I can confidently say I really do feel all these benefits. It's to no suprise. The alarm clock interupts one of the most important cycles of your body, and so it only makes sense to leave sleep alone so it can do what it needs to do.</p><h2 id="how-i-transitioned-to-natural-sleep">How I Transitioned to Natural Sleep</h2><p>Once I decided to try this experiment, I created a simple plan to implement it. Before this life change, my sleep schedule was from around 1 am to 8 am. So, the first thing I did was set an alarm for the target time I wanted to naturally wake up, in my case, 7 am.</p><p>The first night resulted in 6 hours of sleep (1 am to 7 am). My body needs more than that, so by the time 11 pm rolled around, I was ready to fall asleep. It was initially tough to sleep earlier than normal, as I felt there was still time to do things, but I let my body dictate my actions and went to bed without an alarm.</p><p>That night, I slept for about 9 hours due to sleep debt. I missed my 7 am target, but it wasn’t a big deal. After that, with my body reset, I simply aimed to continue to sleep around 11 pm, meaning I was in bed by 10:30 pm. The pressure of needing to naturally wake up before work was enough motivation to forgo the later hours of the night and continue heading to bed early.</p><p>Now, I’ve settled into a great rhythm of going to bed around 10-10:30 pm and waking up around 6:30 am. What’s great is discovering how much sleep my body naturally needs (8-8.5 hours). No more trying to &quot;hack&quot; my body with things like miserable polyphasic sleep experiments. I know what my body needs, I succumb to it, and I’m rewarded the next day.</p><h2 id="some-caveats">Some Caveats</h2><p>What worked for me won’t necessarily work for everyone. Each person and their situation is unique, so results will obviously vary. Some unique factors for me are:</p><ul><li>I’ve always been able to fall asleep quickly, which might be due to consistent sleep deprivation, regular exercise, or both.</li><li>My only dependent is a dog, and she doesn’t mind sleeping in a bit in the morning.</li><li>I always sleep with white noise, which helps block out sounds that would normally wake me up during the night.</li><li>My work schedule is consistently 9 am to 5 pm.</li></ul><p>One final note: I still use alarm clocks for special occasions, such as early morning flights. Although I could probably wake up naturally for them, I would probably wake up in the middle of the night stressed about the possibility of missing my flight without an alarm set.</p><h2 id="try-it-out">Try It Out</h2><p>This change has been significant enough in my life that I frequently recommend it to friends. I now honestly believe that the alarm clock is the single worst thing the wider population willingly inflicts on themselves. If you’re willing to eliminate the morning alarm clock from your life, I would love to hear how it goes. Feel free to email me at <a href="mailto:ashleynewman@protonmail.com">ashleynewman@protonmail.com</a>. Good luck!</p></div>]]>
+			</content:encoded>
 		</item>
-    <item>
+		<item>
 			<title>Elongate the Week</title>
 			<link>https://asnewman.github.io/elongatetheweek</link>
 			<pubDate>Sun, 1 Jun 2023 05:40:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>self-help</category>
-			<description><![CDATA[Recently, I went on a week-long vacation to Japan. Besides being a ton of fun, something that stood out was how long the trip felt.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <p><a href="/">Home</a></p>
-      <h1>Elongate the Week</h1>
-      <p>Recently, I went on a week-long vacation to Japan. Besides being a ton of fun, something that stood out was how long the trip felt. One week in Japan felt like three weeks of my regular life. I've thought about why this is and found that the amount of time felt is greatly related to the number of memories created. This checks out because I've been feeling recently that my work week blows by, leaving me with a feeling of time blur. What has happened is that I've gotten into such a standard routine day to day that nothing really different happens. The feeling of being lost in time is probably worsened by working from home and not getting a lot of in-person interaction during the work week.</p>
-      <p>After making this revelation, I decided I wanted to feel my week more, similar to how it was in Japan. To do this, I've been purposefully breaking my routine and trying my best to have at least one memorable event each day. Working from different locations and taking different morning running routes has been a good start.</p>
-      <p>Interestingly, I found that the memory doesn't necessarily need to be good. For example, I was working at a Starbucks when an incident occurred between the manager and a customer, resulting in a yelling match. Although it was uncomfortable to witness, I was thankful that it made my day memorable.</p>
-      <p>Although I'll probably never recreate the feeling of being in Japan during my work week (it was a vacation, after all), this has been a worthwhile change in my life. It does make the weekend feel further away, but luckily I enjoy my job, and it makes me feel that I am <i>living</i> each day.</p>
-      </div>]]></content:encoded>
+			<description>
+				<![CDATA[Recently, I went on a week-long vacation to Japan. Besides being a ton of fun, something that stood out was how long the trip felt.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><p><a href="/">Home</a></p><h1>Elongate the Week</h1><p>Recently, I went on a week-long vacation to Japan. Besides being a ton of fun, something that stood out was how long the trip felt. One week in Japan felt like three weeks of my regular life. I've thought about why this is and found that the amount of time felt is greatly related to the number of memories created. This checks out because I've been feeling recently that my work week blows by, leaving me with a feeling of time blur. What has happened is that I've gotten into such a standard routine day to day that nothing really different happens. The feeling of being lost in time is probably worsened by working from home and not getting a lot of in-person interaction during the work week.</p><p>After making this revelation, I decided I wanted to feel my week more, similar to how it was in Japan. To do this, I've been purposefully breaking my routine and trying my best to have at least one memorable event each day. Working from different locations and taking different morning running routes has been a good start.</p><p>Interestingly, I found that the memory doesn't necessarily need to be good. For example, I was working at a Starbucks when an incident occurred between the manager and a customer, resulting in a yelling match. Although it was uncomfortable to witness, I was thankful that it made my day memorable.</p><p>Although I'll probably never recreate the feeling of being in Japan during my work week (it was a vacation, after all), this has been a worthwhile change in my life. It does make the weekend feel further away, but luckily I enjoy my job, and it makes me feel that I am <i>living</i> each day.</p></div>]]>
+			</content:encoded>
 		</item>
-    <item>
+		<item>
 			<title>30 Days 30 Minutes</title>
 			<link>https://asnewman.github.io/30days30minutes</link>
 			<pubDate>Mon, 1 May 2023 05:40:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>self-help</category>
-			<description><![CDATA[I am happy to report that I've completed 30 days straight of my 30 minutes daily challenge.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-        <p><a href="/">Home</a></p>
-        <h1>30 Days 30 Minutes</h1>
-        <p>I am happy to report that I&#39;ve completed 30 days straight of my <a
+			<description>
+				<![CDATA[I am happy to report that I've completed 30 days straight of my 30 minutes daily challenge.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><p><a href="/">Home</a></p><h1>30 Days 30 Minutes</h1><p>I am happy to report that I&#39;ve completed 30 days straight of my <a
                 href="https://asnewman.github.io/30minutesaday">30 minutes daily challenge</a>. It took me 55 days to
             complete due to a couple broken streaks. Looking back at my <a
                 href="https://asnewman.github.io/1week30minutes">7 day report</a>, I wanted to increase the amount of
             time I spent in each session (e.g. more than 30 minutes). I can confidently say that the average time has
             increased, though I don&#39;t have any concrete numbers since I didn&#39;t record any of it. I also have to
-            admit on some days I didn&#39;t complete a full 30 minutes, but I&#39;m happy I at least did some work.</p>
-
-        <p>Some of the things I worked on include:</p>
-
-        <ul>
-            <li>Rewriting (part of) simplestat.us in Python</li>
-            <li>Blog post <a href="https://asnewman.github.io/when-to-stop">When to Stop</a></li>
-            <li>Work on my &quot;fun&quot; editor</li>
-            <li>Blog post <a href="https://asnewman.github.io/self-help">Self-help</a></li>
-            <li><a href="https://nomodoom.com/">Nomodoom </a>bug fix</li>
-            <li><a href="https://just-read.vercel.app/">Just Read</a> project</li>
-            <li><a href="https://addons.mozilla.org/en-US/firefox/addon/just-read-text-to-speech/">Just Read</a> firefox
-                extension project</li>
-            <li>Work on a game project</li>
-            <li><a href="https://www.tiktok.com/@briefbitsvideos">Brief Bits</a> TikTok channel with 4 video uploads
-            </li>
-            <li>Blog post <a href="https://asnewman.github.io/positive-monster">Positive Monster</a></li>
-        </ul>
-
-        <p>You can find the exhaustive list on my <a href="https://twitter.com/edweirdsnowman">Twitter page</a>.</p>
-
-        <p>I&#39;m ecstatic that I could accomplish all the things above while having a full-time job and maintaining a
-            balanced life.</p>
-
-        <p>One thing that stands out to me is how dispersed my efforts were. I don&#39;t think that is a bad thing, but
+            admit on some days I didn&#39;t complete a full 30 minutes, but I&#39;m happy I at least did some work.</p><p>Some of the things I worked on include:</p><ul><li>Rewriting (part of) simplestat.us in Python</li><li>Blog post <a href="https://asnewman.github.io/when-to-stop">When to Stop</a></li><li>Work on my &quot;fun&quot; editor</li><li>Blog post <a href="https://asnewman.github.io/self-help">Self-help</a></li><li><a href="https://nomodoom.com/">Nomodoom </a>bug fix</li><li><a href="https://just-read.vercel.app/">Just Read</a> project</li><li><a href="https://addons.mozilla.org/en-US/firefox/addon/just-read-text-to-speech/">Just Read</a> firefox
+                extension project</li><li>Work on a game project</li><li><a href="https://www.tiktok.com/@briefbitsvideos">Brief Bits</a> TikTok channel with 4 video uploads
+            </li><li>Blog post <a href="https://asnewman.github.io/positive-monster">Positive Monster</a></li></ul><p>You can find the exhaustive list on my <a href="https://twitter.com/edweirdsnowman">Twitter page</a>.</p><p>I&#39;m ecstatic that I could accomplish all the things above while having a full-time job and maintaining a
+            balanced life.</p><p>One thing that stands out to me is how dispersed my efforts were. I don&#39;t think that is a bad thing, but
             I wonder how much I can get done if I focus on one thing for a set amount of time. As a result, my next
-            experiment will be to work on my game for 7 days straight.</p>
-
-        <p>I&#39;m still planning to continue the 30 minutes a day activity, but I will report less about it on my
+            experiment will be to work on my game for 7 days straight.</p><p>I&#39;m still planning to continue the 30 minutes a day activity, but I will report less about it on my
             Twitter page. Instead of daily posts, I will only report significant progress updates about my projects to
             reduce spam. However, if I become inconsistent with the 30 minutes because of this, I will revert back to my
-            original posting schedule.</p>
-
-    </div>]]></content:encoded>
+            original posting schedule.</p></div>]]>
+			</content:encoded>
 		</item>
-    <item>
+		<item>
 			<title>Positive Monster</title>
 			<link>https://asnewman.github.io/positive-monster</link>
 			<pubDate>Wed, 26 Apr 2023 07:57:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>self-help</category>
-			<description><![CDATA[I’m watching a Japanese show on Netflix called “The Full-Time Wife Escapist”. At one point in the show, a man calls a woman a “Positive Monster”, which she then nicknames “Posimon”.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <h1>Positive Monster</h1>
-      <p>I’m watching a Japanese show on Netflix called “The Full-Time Wife Escapist”. At one point in the show, a man calls a woman a “Positive Monster”, which she then nicknames “Posimon”.</p>
-      <img src="https://i.imgur.com/S5ksFUA.png" alt="posimon" style="max-width:600px;width:100%" />
-      <p>The idea of a creature gobbling up and spewing positivity is really amusing to me. Though becoming a monster of positivity probably isn’t what we should strive for, I’ve used it as a useful tool in my life. For example, when I’m feeling down, becoming a temporary Posimon is an effective way out of a rut. Though it was used as an insult in the show, funny enough, it’s something positive that I’ve added to my life. </p>
-    </div>]]></content:encoded>
-		</item>	
-    <item>
+			<description>
+				<![CDATA[I’m watching a Japanese show on Netflix called “The Full-Time Wife Escapist”. At one point in the show, a man calls a woman a “Positive Monster”, which she then nicknames “Posimon”.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><h1>Positive Monster</h1><p>I’m watching a Japanese show on Netflix called “The Full-Time Wife Escapist”. At one point in the show, a man calls a woman a “Positive Monster”, which she then nicknames “Posimon”.</p><img src="https://i.imgur.com/S5ksFUA.png" alt="posimon" style="max-width:600px;width:100%" /><p>The idea of a creature gobbling up and spewing positivity is really amusing to me. Though becoming a monster of positivity probably isn’t what we should strive for, I’ve used it as a useful tool in my life. For example, when I’m feeling down, becoming a temporary Posimon is an effective way out of a rut. Though it was used as an insult in the show, funny enough, it’s something positive that I’ve added to my life. </p></div>]]>
+			</content:encoded>
+		</item>
+		<item>
 			<title>Self-help</title>
 			<link>https://asnewman.github.io/self-help</link>
 			<pubDate>Wed, 22 Mar 2023 08:08:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>self-help</category>
-			<description><![CDATA[I was on the plane the other day writing my blog post “When to Quit” when I started to think about self-help.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <h1>Self-help</h1>
-      <p>I was on the plane the other day writing my blog post <a href="/when-to-quit">&ldquo;When to Quit&rdquo;</a> when I started to think about self-help.<br>
+			<description>
+				<![CDATA[I was on the plane the other day writing my blog post “When to Quit” when I started to think about self-help.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><h1>Self-help</h1><p>I was on the plane the other day writing my blog post <a href="/when-to-quit">&ldquo;When to Quit&rdquo;</a> when I started to think about self-help.<br>
       Why is it so popular?<br>
-      Why do we find it so useful?</p>
-
-      <p>The truth is, I find most self-help advice to be obvious.<br>
+      Why do we find it so useful?</p><p>The truth is, I find most self-help advice to be obvious.<br>
       Rarely do I read a self-help book or post and find it revolutionary.<br>
-      I think this about my self-help posts too.</p>
-
-      <p>While writing, I often wonder if anyone will find my advice useful.<br>
-      I imagine myself as a reader thinking &ldquo;Duh, obviously I shouldn&rsquo;t overwork myself or watch too much TV&rdquo;.</p>
-
-      <p>But the true power of self-help is learning new tactics to achieve these obvious goals in life.<br>
+      I think this about my self-help posts too.</p><p>While writing, I often wonder if anyone will find my advice useful.<br>
+      I imagine myself as a reader thinking &ldquo;Duh, obviously I shouldn&rsquo;t overwork myself or watch too much TV&rdquo;.</p><p>But the true power of self-help is learning new tactics to achieve these obvious goals in life.<br>
       Gamification, mindset shifts, and experimentation are all the real fruits of self-help.<br>
-      And it&rsquo;s awesome if you&rsquo;re like me and love trying new self-help tactics because of all the content out there.</p>
-
-      <p>But there&rsquo;s also a dangerous side to the abundance.</p>
-
-      <h2>Self-Help Addiction</h2>
-      <p>Caleb Schoep has a piece called <a href="https://calebschoepp.com/blog/2022/productivity-porn/">&ldquo;Productivity Porn&rdquo;</a>.<br>
+      And it&rsquo;s awesome if you&rsquo;re like me and love trying new self-help tactics because of all the content out there.</p><p>But there&rsquo;s also a dangerous side to the abundance.</p><h2>Self-Help Addiction</h2><p>Caleb Schoep has a piece called <a href="https://calebschoepp.com/blog/2022/productivity-porn/">&ldquo;Productivity Porn&rdquo;</a>.<br>
       I recommend reading it, but the TLDR is this:<br>
       Consuming content about productive people or how to be productive can replace the need to actually be productive.<br>
-      The same applies to self-help.</p>
-
-      <p>I&rsquo;ve seen myself fall into a trap that goes something like this:</p>
-      <ol>
-        <li>Finish reading a self-help book that has tons of great advice.</li>
-        <li>Feel that my life has already improved because it was so insightful.</li>
-        <li>Get the urge to experiment and implement the newly gained knowledge, but that requires work, so I&rsquo;ll watch a YouTube video about someone doing it instead.</li>
-        <li>YouTuber validates how great everything is now, and I get so excited that I made the right choice to have read the book.</li>
-        <li>I wonder what other wonderful self-help advice there is, so I find recommendations and buy another book off Amazon to start the cycle over again.</li>
-      </ol>
-
-      <p>The problem is that life hasn&rsquo;t changed since reading the book.<br>
-      I only temporarily feel better because of the exciting new knowledge, but after the high is gone, I still have the same life problems.</p>
-
-      <p>There&rsquo;s some clear personal responsibility failure here, but I know I&rsquo;m not the only one who does this, and there&rsquo;s a reason for it.</p>
-
-      <h2>It&rsquo;s a Business</h2>
-      <p>A big problem with self-help content is how they describe themselves and how much it hypes the reader.<br>
+      The same applies to self-help.</p><p>I&rsquo;ve seen myself fall into a trap that goes something like this:</p><ol><li>Finish reading a self-help book that has tons of great advice.</li><li>Feel that my life has already improved because it was so insightful.</li><li>Get the urge to experiment and implement the newly gained knowledge, but that requires work, so I&rsquo;ll watch a YouTube video about someone doing it instead.</li><li>YouTuber validates how great everything is now, and I get so excited that I made the right choice to have read the book.</li><li>I wonder what other wonderful self-help advice there is, so I find recommendations and buy another book off Amazon to start the cycle over again.</li></ol><p>The problem is that life hasn&rsquo;t changed since reading the book.<br>
+      I only temporarily feel better because of the exciting new knowledge, but after the high is gone, I still have the same life problems.</p><p>There&rsquo;s some clear personal responsibility failure here, but I know I&rsquo;m not the only one who does this, and there&rsquo;s a reason for it.</p><h2>It&rsquo;s a Business</h2><p>A big problem with self-help content is how they describe themselves and how much it hypes the reader.<br>
       Look at the cover or back of any self-help book.<br>
-      You&rsquo;ll quickly see exaggerated promises and highlighted reviews about how life-changing the content is.</p>
-
-      <p>For example, &ldquo;The Subtle Art of Not Giving a F*ck&rdquo;&rsquo;s website has some great snippets like the following:<br>
-      <i>Note: I chose this book because it was my, and many others, first book in the self-help genre.</i></p>
-
-      <p>&ldquo;This breakout, mega bestseller is the self-help book for people who hate self-help. It&rsquo;s as much a pat on the back as a slap in the face. It&rsquo;s the first truly no BS guide to flourishing in a crazy, crazy world&mdash;a truly counterintuitive approach to living a good life.&rdquo;</p>
-
-      <p>Wow. This sounds awesome! It&rsquo;s not like the other self-help books. This is real and the others are just full of BS! (I&rsquo;m not trying to be sarcastic, this is legitimately what I thought many years ago when I picked up the book).</p>
-
-      <p>Scroll down a bit, and you&rsquo;ll find amazing reviews from notable people (funny enough most from other self-help authors).</p>
-      
-      <img src="https://i.imgur.com/dmErccL.png" alt="image of reviews" style="max-width:600px;width:100%" />
-
-      <p>And the truth is, none of this is evil.<br>
+      You&rsquo;ll quickly see exaggerated promises and highlighted reviews about how life-changing the content is.</p><p>For example, &ldquo;The Subtle Art of Not Giving a F*ck&rdquo;&rsquo;s website has some great snippets like the following:<br><i>Note: I chose this book because it was my, and many others, first book in the self-help genre.</i></p><p>&ldquo;This breakout, mega bestseller is the self-help book for people who hate self-help. It&rsquo;s as much a pat on the back as a slap in the face. It&rsquo;s the first truly no BS guide to flourishing in a crazy, crazy world&mdash;a truly counterintuitive approach to living a good life.&rdquo;</p><p>Wow. This sounds awesome! It&rsquo;s not like the other self-help books. This is real and the others are just full of BS! (I&rsquo;m not trying to be sarcastic, this is legitimately what I thought many years ago when I picked up the book).</p><p>Scroll down a bit, and you&rsquo;ll find amazing reviews from notable people (funny enough most from other self-help authors).</p><img src="https://i.imgur.com/dmErccL.png" alt="image of reviews" style="max-width:600px;width:100%" /><p>And the truth is, none of this is evil.<br>
       The book is good - I&rsquo;ve learned things from it.<br>
-      But as readers, we need to give ourselves a reality check.</p>
-
-      <p>Reading this book at best improved my life by 1-2%, which is great, but I wouldn&rsquo;t say it matches the hype I got when I read about it.<br>
+      But as readers, we need to give ourselves a reality check.</p><p>Reading this book at best improved my life by 1-2%, which is great, but I wouldn&rsquo;t say it matches the hype I got when I read about it.<br>
       This letdown becomes really apparent after reading the 10th self-help book in a row described as life-changing.<br>
-      How can all these books promise life-changing results, but after reading them all I&rsquo;m not a levitating life guru creating Nirvana on earth?</p>
-
-      <p>The reality is that the self-help industry is not a charity.<br>
+      How can all these books promise life-changing results, but after reading them all I&rsquo;m not a levitating life guru creating Nirvana on earth?</p><p>The reality is that the self-help industry is not a charity.<br>
       Lots of people make lots of money off of this stuff, and that&rsquo;s not a terrible thing (I wouldn&rsquo;t mind making money off of my writing one day).<br>
-      But there is a bit of a conflict of interest.</p>
-
-      <p>If everyone wants you to buy their life-changing book or watch their eye-opening YouTube video, they need to make it as enticing as possible.<br>
-      The result is, as consumers, we don&rsquo;t take the time to fully absorb what we learned since it&rsquo;s so easy to get distracted by what&rsquo;s next.</p>
-
-      <h2>A Confession</h2>
-      <p>To be honest, I feel slightly weird when I write self-help blog posts.<br>
+      But there is a bit of a conflict of interest.</p><p>If everyone wants you to buy their life-changing book or watch their eye-opening YouTube video, they need to make it as enticing as possible.<br>
+      The result is, as consumers, we don&rsquo;t take the time to fully absorb what we learned since it&rsquo;s so easy to get distracted by what&rsquo;s next.</p><h2>A Confession</h2><p>To be honest, I feel slightly weird when I write self-help blog posts.<br>
       Who am I to give advice?<br>
       I&rsquo;m just someone trying to live a fulfilling life, exactly like everyone else.<br>
       And a lot of the &ldquo;advice&rdquo; I write about is myself exploring and sharing what is working at the time.<br>
-      Because of this, it isn&rsquo;t unusual for me to look back on posts and think, &ldquo;Oh right, I used to do/think that.&rdquo;</p>
-
-      <p>But writing and sharing this stuff has been critical in improving my life.<br>
+      Because of this, it isn&rsquo;t unusual for me to look back on posts and think, &ldquo;Oh right, I used to do/think that.&rdquo;</p><p>But writing and sharing this stuff has been critical in improving my life.<br>
       So in a sense, my &ldquo;cosplaying&rdquo; as a source of self-help for other people is really just myself practicing self-help.<br>
       And if people get inspired to try something out by it, that makes it worth continuing despite my criticisms about self-help.<br>
-      In the end, there is value that can be had from consuming and producing self-help content, but we all need to be mindful of the realities of what it can and can&rsquo;t do for us.</p>
-    </div>]]></content:encoded>
+      In the end, there is value that can be had from consuming and producing self-help content, but we all need to be mindful of the realities of what it can and can&rsquo;t do for us.</p></div>]]>
+			</content:encoded>
 		</item>
-    <item>
+		<item>
 			<title>When to Stop</title>
 			<link>https://asnewman.github.io/when-to-stop</link>
 			<pubDate>Mon, 20 Mar 2023 09:00:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>productivity</category>
-			<description><![CDATA[I saw a drawing the other day about working that I really appreciated.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <p><a href="/">Home</a></p>
-      <h1>When to Stop</h1>
-      <p>
+			<description>
+				<![CDATA[I saw a drawing the other day about working that I really appreciated.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><p><a href="/">Home</a></p><h1>When to Stop</h1><p>
         I saw a drawing the other day about working that I really appreciated. I don’t remember the source, but it looked something like this:
-      </p>
-      <img src="https://i.imgur.com/Hvqwpyr.png" style="max-width:600px;width:100%" alt="graphic about working" />
-      <p>
+      </p><img src="https://i.imgur.com/Hvqwpyr.png" style="max-width:600px;width:100%" alt="graphic about working" /><p>
         The message being to stop working before reaching exhaustion. The problem with 100% energy expenditure for work is that you won’t have any energy to do productive, non-work related activities afterward. These activities include cleaning, cooking, exercising, and doing hobbies. All these activities are essential to living a balanced life. Without them, burnout and mental deterioration will creep up and show no mercy.
-      </p>
-      <p>
+      </p><p>
         I’m fully aware that being able to freely decide whether to continue working or calling it for the day is not always possible. Luckily, there is another part of the day that one can be mindful of when it comes to stopping at the appropriate time. Indulging in pure pleasure, like watching shows, playing video games, or scrolling for memes on Instagram is an essential part of restoring one’s energy reserve. That being said, spending too much time indulging takes away from other non-work related activities, while also making the act of indulging no longer pleasurable. Take a look at the following graphic:
-      </p>
-      <img src="https://i.imgur.com/oU33byN.png" style="max-width:600px;width:100%" alt="graphic about indulging" />
-      <p>
+      </p><img src="https://i.imgur.com/oU33byN.png" style="max-width:600px;width:100%" alt="graphic about indulging" /><p>
         There is a good portion representing the need for the mind to relax and rejuvenate. But too much can result in what I call “zombie mode”. I often feel this after an hours-long binge of a reality show or playing video games. The activity is no longer fun, and I’m just mindlessly consuming it. In the end, I start to feel more exhausted and restless than before I started “relaxing”.
-      </p>
-      <p>
+      </p><p>
         All this is to say, living each day by expending all my energy at work, then transitioning to overindulgence has always left me feeling disconnected and dissatisfied with life. Every person is different, but I do think everyone has their limits in both realms. Navigating when to stop has helped me feel better about each day and I encourage everyone else to be mindful of it too.
-      </p>
-    </div>]]></content:encoded>
+      </p></div>]]>
+			</content:encoded>
 		</item>
-    <item>
+		<item>
 			<title>Completed: 30 Minutes a Day</title>
 			<link>https://asnewman.github.io/1week30minutes</link>
 			<pubDate>Mon, 13 Mar 2023 07:00:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>experiments</category>
-			<description><![CDATA[It was a great success.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <p><a href="/">Home</a></p>
-      <h1>Completed: 30 Minutes a Day</h1>
-      <div style="background-color: #f0f0f0; padding: 5px 0">
-        <blockquote>"the most productive part of the 30 minutes is the 30 minutes after"</blockquote>
-      </div>
-      <p>
+			<description>
+				<![CDATA[It was a great success.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><p><a href="/">Home</a></p><h1>Completed: 30 Minutes a Day</h1><div style="background-color: #f0f0f0; padding: 5px 0"><blockquote>"the most productive part of the 30 minutes is the 30 minutes after"</blockquote></div><p>
         As I am writing this, I am completing the last day of my 30 minutes a day for
         7 days challenge. It was a great success. Here are some statistics:
-      </p>
-      <ul>
-        <li>I live streamed 6 out of the 7 days, most of the time with 1-2 concurrent viewers</li>
-        <li>Sessions lasted for an average of 42 minutes, with the longest being 1:08 and the shortest being 30 minutes</li>
-        <li>One session started at 2:00am</li>
-        <li>3 blogging sessions, 3 programming sessions, and 1 administrative session</li>
-        <li>All the sessions totaled 4 hours and 56 minutes!</li>
-      </ul>
-      <h2>Thoughts</h2>
-      <p>
+      </p><ul><li>I live streamed 6 out of the 7 days, most of the time with 1-2 concurrent viewers</li><li>Sessions lasted for an average of 42 minutes, with the longest being 1:08 and the shortest being 30 minutes</li><li>One session started at 2:00am</li><li>3 blogging sessions, 3 programming sessions, and 1 administrative session</li><li>All the sessions totaled 4 hours and 56 minutes!</li></ul><h2>Thoughts</h2><p>
         I've never been this consistent on productive, non-work related projects over the course of a week.
         Seeing that I committed almost 5 hours towards things I am proud of made me
         happy and able to relax during dedicated leisure time.
-      </p>
-      <p>
+      </p><p>
         There were two things that I attribute to the experiment being a success.
         First, the sessions only being 30 minutes really helped me commit to finishing
         each day. Because it's such a short time, on low-motivation days, it was easy
         to convince myself that a session won't be that too painful. Second, posting
         my session summary on Twitter helped build accountability. That last thing I
         wanted to do was expose a failure to my many followers 😂.
-      </p>
-      <h2>What's next</h2>
-      <p>
+      </p><h2>What's next</h2><p>
         My goal is to continue these session on a daily basis. If I miss a
         day, I will create a new goal for X amount of consecutive days. I also hope
         that my average session time increases, but that is something I will not be
         actively improving. I'm guessing that once this becomes a habit, I will
         naturally dedicate more time to each session.
-      </p>
-      <p>
+      </p><p>
         If/when I hit 30 consecutive days, I will do another reflection like this. I'm
         excited to see what I accomplish during that time!
-      </p>
-    </div>]]></content:encoded>
+      </p></div>]]>
+			</content:encoded>
 		</item>
-    <item>
+		<item>
 			<title>Shoshikantetsu</title>
 			<link>https://asnewman.github.io/30minutesaday</link>
 			<pubDate>Fri, 10 Mar 2023 08:11:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>experiments</category>
-			<description><![CDATA["Shoshi" translates to "original intent", and kantetsu translates to "to carry out".]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <p><a href="/">Home</a></p>
-      <h1>Shoshikantetsu</h1>
-      <p>
+			<description>
+				<![CDATA["Shoshi" translates to "original intent", and kantetsu translates to "to carry out".]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><p><a href="/">Home</a></p><h1>Shoshikantetsu</h1><p>
         The other day I was visiting my parents in Hawaii when I complained to my mother about not wanting to do a planned run that afternoon.
         I told her that I was tired and was dreading physical exercise.
         Despite that, I explained to her that I was going to do it, even if it meant I ran a lot slower than my regular pace.
-      </p>
-      <p>
+      </p><p>
         Eventually, I did go on my run, and sure enough, it was slow.
         I apologized to my mom for taking so long because I had planned to watch a show with her afterward.
         My mom, who is Japanese, told me it was all right and taught me a new term in Japanese called 初志貫徹 (shoshikantetsu).
-      </p>
-      <p>
+      </p><p>
         "Shoshi" translates to "original intent", and kantetsu translates to "to carry out".
         Combined, it means to complete what was originally intended.
         In this case, I practiced "shoshikantetsu" by completing the planned run, despite my low motivation.
-      </p>
-      <p>
+      </p><p>
         My mom printed the phrase out for me after she saw my interest in it.
-      </p>
-      <img src="https://i.imgur.com/pMwzJ4m.jpg" alt="shoshikantetsu print out" />
-      <p>
+      </p><img src="https://i.imgur.com/pMwzJ4m.jpg" alt="shoshikantetsu print out" /><p>
         I've thought a lot about shoshikantetsu since then.
         Having a high say-do ratio has always been important to me, but I wanted to strategize a way to make sure my commitments were seen through to the end.
         What I ended up landing on was focusing on making the "original intent" small enough that I had no excuses to not complete them.
-      </p>
-      <p>
+      </p><p>
         For example, <a href="https://asnewman.github.io/30minutesaday">I'm currently experimenting with doing 30 minutes of enjoyable, productive activities once a day for 7 days</a>.
         Originally, I wanted to make this an hour per day life long habit.
         The truth is, such a grandiose original intend only sets you up for failure.
         By adjusting the experiment to something a lot less intense, it made it less intimidating.
         As a result, so far, performing my 30 minute duty feels easy, especially because I know after a week I can quit if I want.
         Of course I would like to continue the habit for as long as it works for me, and reducing the pressure to achieve it is probably the best way to promote consistency.
-      </p>
-      <p>
+      </p><p>
         Apparently, there are many 4 letter Japanese idioms out there. Some other interesting ones include:
-        <ul>
-          <li>一期一会 (ichigoichie) - "Treasure every encounter, for it will never recur."</li>
-          <li>一日一歩 (iichinichiippo) - "One step each day."</li>
-          <li>十人十色  (jūnintoiro) - "To each their own; So many people, so many minds"</li>
-        </ul>
-      </p>
-      <p>
+        <ul><li>一期一会 (ichigoichie) - "Treasure every encounter, for it will never recur."</li><li>一日一歩 (iichinichiippo) - "One step each day."</li><li>十人十色  (jūnintoiro) - "To each their own; So many people, so many minds"</li></ul></p><p>
         It's great to learn new phrases/idioms, especially when you allow it to change how you think about life.
         I'm sure shoshikantetsu will stick with me as I continue to create goals for myself in the future.
-      </p>
-    </div>]]></content:encoded>
+      </p></div>]]>
+			</content:encoded>
 		</item>
-    <item>
+		<item>
 			<title>30 Minutes a Day</title>
 			<link>https://asnewman.github.io/30minutesaday</link>
 			<pubDate>Mon, 7 Mar 2023 07:40:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>experiments</category>
-			<description><![CDATA[For the next 7 days, I will dedicate at least 30 minutes to activities that I know will both produce joy and content.]]></description>
-			<content:encoded><![CDATA[<div style="max-width: 600px;">
-      <p><a href="/">Home</a></p>
-      <h1>30 Minutes a Day</h1>
-      <p>
+			<description>
+				<![CDATA[For the next 7 days, I will dedicate at least 30 minutes to activities that I know will both produce joy and content.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px;"><p><a href="/">Home</a></p><h1>30 Minutes a Day</h1><p>
         For the next 7 days, I will dedicate at least 30 minutes to activities that I know will both produce joy and content.
         Such activities will include the following:
-      </p>
-      <ul>
-        <li>Programming small side projects</li>
-        <li>Playing/creating music</li>
-        <li>Writing blog posts</li>
-        <li>Staring off into space</li>
-      </ul>
-      <p>
+      </p><ul><li>Programming small side projects</li><li>Playing/creating music</li><li>Writing blog posts</li><li>Staring off into space</li></ul><p>
         These are activities that I wish to do more of because I know at the end of doing them, I feel better.
         Ideally, I would like to have these sessions be longer (~1 hour), but 30 minutes felt like a number that isn't too intimidating to start with.
         I hope to have it become a habit that lasts longer than 7 days, but that is the bare minimum I promise to complete for this experiment.
-      </p>
-      <p>
+      </p><p>
         For each session, I will try to <a href="https://www.twitch.tv/borrimorri">live stream</a> what I am doing, but there probably will be days when live streaming doesn't make sense.
         In any case, I will post on <a href="https://twitter.com/edweirdsnowman">my twitter</a> what I did during the 30 minutes.
         I'll be doing this not for views, but more for a public record that I can look back on.
-      </p>
-      <p>I'm excited to start this experiment! In fact, this post was created during the first session.</p>
-    </div>]]></content:encoded>
+      </p><p>I'm excited to start this experiment! In fact, this post was created during the first session.</p></div>]]>
+			</content:encoded>
 		</item>
 		<item>
 			<title>The Neglected Log In Button</title>
@@ -450,35 +340,12 @@
 			<pubDate>Sat, 4 Mar 2023 21:00:00 GMT</pubDate>
 			<author>Ashley Newman</author>
 			<category>web</category>
-			<description><![CDATA[Ever visit a website you frequent and get frustrated that you can't find the log in button?]]></description>
-			<content:encoded><![CDATA[<p><a href="/">Home</a></p>
-      <h1>The Neglected Log In Button</h1>
-      <p>Ever visit a website you frequent and get frustrated that you can't find the log in button? For some reason that I can't comprehend, web designers love to highlight the "Sign Up" button and not the "Log In" button, communicating that potential users are more valuable than loyal, regular users. Here are some examples:</p>
-      <img src="https://i.imgur.com/ppW3WGq.png" alt="twitter homepage" style="max-width:600px;width:100%" />
-      <br />
-      <span><b>Twitter:</b> 4 obvious ways to sign up, 1 unhighlighted way to log in<span>
-      <br />
-      <br />
-      <img src="https://i.imgur.com/xPR4B5p.png" alt="twitch homepage" style="max-width:600px;width:100%" />
-      <br />
-      <span><b>Twitch:</b> Better than Twitter, though still obviously wants to highlight "Sign Up" over "Log In"</span>
-      <br />
-      <br />
-      <img src="https://i.imgur.com/RknUrqJ.png" alt="github homepage" style="max-width:600px;width:100%" />
-      <br />
-      <span><b>GitHub:</b> 0 ways to log in, 2 ways to sign up</span>
-      <br />
-      <br />
-      <img src="https://i.imgur.com/evX2gXW.png" alt="gitlab homepage" style="max-width:600px;width:100%" />
-      <br />
-      <span><b>GitLab:</b> GitHub's competitor doing no better</span>
-      <br />
-      <br />
-      <h2>Log In First</h2>
-      <p>Sure, regular users are logged in most of the time they visit websites. But I can't think of a single reason why not to make log in just as apparent as sign up. It's a very mild inconvenience, but an avoidable one, so it shouldn't happen.</p>
-      <p>Let's take a look at a good example:</p>
-      <img src="https://i.imgur.com/uGJwoq1.png" alt="facebook homepage" style="max-width:600px;width:100%" />
-      <p>Facebook doesn't get a lot of praise nowadays, but this homepage is perfection. There is a clear way to log in, clear way to create an account, and no unnecessary content to distract the user. The more straightforward the web is, the better.</p>]]></content:encoded>
+			<description>
+				<![CDATA[Ever visit a website you frequent and get frustrated that you can't find the log in button?]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<p><a href="/">Home</a></p><h1>The Neglected Log In Button</h1><p>Ever visit a website you frequent and get frustrated that you can't find the log in button? For some reason that I can't comprehend, web designers love to highlight the "Sign Up" button and not the "Log In" button, communicating that potential users are more valuable than loyal, regular users. Here are some examples:</p><img src="https://i.imgur.com/ppW3WGq.png" alt="twitter homepage" style="max-width:600px;width:100%" /><br /><span><b>Twitter:</b> 4 obvious ways to sign up, 1 unhighlighted way to log in<span><br /><br /><img src="https://i.imgur.com/xPR4B5p.png" alt="twitch homepage" style="max-width:600px;width:100%" /><br /><span><b>Twitch:</b> Better than Twitter, though still obviously wants to highlight "Sign Up" over "Log In"</span><br /><br /><img src="https://i.imgur.com/RknUrqJ.png" alt="github homepage" style="max-width:600px;width:100%" /><br /><span><b>GitHub:</b> 0 ways to log in, 2 ways to sign up</span><br /><br /><img src="https://i.imgur.com/evX2gXW.png" alt="gitlab homepage" style="max-width:600px;width:100%" /><br /><span><b>GitLab:</b> GitHub's competitor doing no better</span><br /><br /><h2>Log In First</h2><p>Sure, regular users are logged in most of the time they visit websites. But I can't think of a single reason why not to make log in just as apparent as sign up. It's a very mild inconvenience, but an avoidable one, so it shouldn't happen.</p><p>Let's take a look at a good example:</p><img src="https://i.imgur.com/uGJwoq1.png" alt="facebook homepage" style="max-width:600px;width:100%" /><p>Facebook doesn't get a lot of praise nowadays, but this homepage is perfection. There is a clear way to log in, clear way to create an account, and no unnecessary content to distract the user. The more straightforward the web is, the better.</p>]]>
+			</content:encoded>
 		</item>
 	</channel>
 </rss>
