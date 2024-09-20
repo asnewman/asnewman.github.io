@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonetic</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/asnewman/ashjs@main/index.js"></script>
+  </head>
+  <body class="">
+    <div id="ashjs"></div>
+    <!-- <script src="./script.js" type="module"></script> -->
+    <script>
+      function getData(useDatabase) {
+        if (useDatabase) {
+          const baseId = localStorage.getItem("airtableBaseId");
+          const tableId = localStorage.getItem("airtableTableId");
+          const accessToken = localStorage.getItem("airtableAccessToken");
+
+          if (!baseId || !tableId || !accessToken) {
+            console.error("Airtable credentials not found in localStorage");
+            return Promise.resolve([]);
+          }
+
+          return fetch(`https://api.airtable.com/v0/${baseId}/${tableId}`, {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Failed to fetch data from Airtable");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              return data.records.map((record) => ({
+                id: record.id,
+                native: record.fields.native,
+                phonetic: record.fields.phonetic,
+                english: record.fields.english,
+                correctAttempts: record.fields.correctAttempts || 0,
+                incorrectAttempts: record.fields.incorrectAttempts || 0,
+              }));
+            })
+            .catch((error) => {
+              console.error("Error fetching data from Airtable:", error);
+              return [];
+            });
+        } else {
+          return Promise.resolve([
+            {
+              id: 1,
+              native: "こんにちは",
+              phonetic: "konnichiwa",
+              english: "Hello",
+              correctAttempts: 0,
+              incorrectAttempts: 0,
+            },
+            {
+              id: 2,
+              native: "ありがとう",
+              phonetic: "Arigatou",
+              english: "Thank you",
+              correctAttempts: 0,
+              incorrectAttempts: 0,
+            },
+          ]);
+        }
+      }
+
+      function writeData(record, useDatabase) {
+        if (useDatabase) {
+          const baseId = localStorage.getItem("airtableBaseId");
+          const tableId = localStorage.getItem("airtableTableId");
+          const accessToken = localStorage.getItem("airtableAccessToken");
+
+          if (!baseId || !tableId || !accessToken) {
+            console.error("Airtable credentials not found in localStorage");
+            return Promise.reject("Airtable credentials not found");
+          }
+
+          return fetch(`https://api.airtable.com/v0/${baseId}/${tableId}`, {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              fields: {
+                native: record.native,
+                phonetic: record.phonetic,
+                english: record.english,
+                correctAttempts: record.correctAttempts || 0,
+                incorrectAttempts: record.incorrectAttempts || 0,
+              },
+            }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Failed to write data to Airtable");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Data successfully written to Airtable:", data);
+              return data;
+            })
+            .catch((error) => {
+              console.error("Error writing data to Airtable:", error);
+              throw error;
+            });
+        } else {
+          // If not using database, just return the record as if it was successfully added
+          return Promise.resolve({
+            id: Date.now(), // Generate a temporary ID
+            fields: record,
+          });
+        }
+      }
+
+      async function indexRoute(emit) {
+        return [
+          header(store),
+          {
+            div: [
+              {
+                button: "Configuration",
+                class: "w-full border h-10 rounded-lg mb-2",
+                onclick: () => {
+                  emit("go", "config");
+                },
+              },
+              {
+                input: [],
+                type: "text",
+                placeholder: "Search sentences...",
+                class:
+                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                oninput: (e) => {
+                  emit("update-search", { searchText: e.target.value });
+                },
+              },
+              {
+                div: (store.filteredData || store.data).map((sentence) =>
+                  sentenceCard(
+                    sentence.native,
+                    sentence.phonetic,
+                    sentence.english
+                  )
+                ),
+                id: "sentences",
+              },
+            ],
+            class: "p-4",
+          },
+          {
+            div: [
+              {
+                button: "Add Sentence",
+                class: "flex-auto border h-10 rounded-lg mr-4",
+                onclick: () => {
+                  emit("go", "add");
+                },
+              },
+              {
+                button: "Practice",
+                class: "flex-auto bg-black text-white h-10 rounded-lg",
+                onclick: () => {
+                  emit("go", "practice");
+                },
+              },
+            ],
+            class: "flex fixed bottom-0 w-full bg-white p-4 border",
+          },
+        ];
+      }
+
+      async function addRoute(emit) {
+        return [
+          header(store),
+          {
+            div: [
+              {
+                input: [],
+                type: "text",
+                placeholder: "English",
+                class:
+                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                oninput: (e) => {
+                  emit("render-ids", ["add-button", "auto-generate-button"]);
+                },
+              },
+              {
+                input: [],
+                type: "text",
+                placeholder: "Native",
+                class:
+                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                oninput: (e) => {
+                  emit("render-ids", ["add-button"]);
+                },
+              },
+              {
+                input: [],
+                type: "text",
+                placeholder: "Phonetic",
+                class:
+                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                oninput: (e) => {
+                  emit("render-ids", ["add-button"]);
+                },
+              },
+              {
+                button: "Auto-generate",
+                id: "auto-generate-button",
+                class:
+                  "w-full mt-2 bg-blue-500 text-white p-3 rounded-lg shadow cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed",
+                ...(isAutoGenerateButtonDisabled() || store.generating
+                  ? { disabled: "" }
+                  : {}),
+                onclick: async () => {
+                  emit("auto-generate");
+                },
+              },
+              {
+                button: "Add",
+                id: "add-button",
+                class:
+                  "w-full mt-2 bg-black text-white p-3 rounded-lg shadow cursor-pointer disabled:bg-gray-400",
+                ...(isAddButtonDisabled() ? { disabled: "" } : {}),
+                onclick: () => {
+                  emit("add");
+                },
+              },
+            ],
+            class: "p-4",
+          },
+        ];
+      }
+
+      async function practiceRoute(emit) {
+        if (store.randomSentence === null) {
+          store.randomSentence = getRandomSentence(store);
+        }
+
+        const totalAttempts =
+          store.randomSentence.correctAttempts +
+          store.randomSentence.incorrectAttempts;
+        const score =
+          totalAttempts > 0
+            ? Math.round(
+                (store.randomSentence.correctAttempts / totalAttempts) * 100
+              )
+            : 0;
+
+        return [
+          header(store),
+          {
+            div: [
+              {
+                p: "Translate this sentence:",
+                class: "text-lg font-bold mb-4",
+              },
+              {
+                p: store.randomSentence.english,
+                class: "text-xl mb-4",
+              },
+              {
+                input: [],
+                type: "text",
+                placeholder: "Type the translation...",
+                class:
+                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                oninput: (e) => emit("render-ids", ["check-button"]),
+              },
+              {
+                button: "Check",
+                id: "check-button",
+                class:
+                  "w-full mt-4 bg-blue-500 text-white p-3 rounded-lg shadow cursor-pointer disabled:bg-gray-400",
+                onclick: () => {
+                  emit("check");
+                },
+              },
+              {
+                div: [
+                  store.toast.message
+                    ? {
+                        p: store.toast.message,
+                        class: store.toast.class,
+                      }
+                    : { div: "" },
+                ],
+                id: "toast-container",
+                class: "fixed top-4 right-4 z-50",
+              },
+              {
+                div: [
+                  {
+                    p: `Score for this sentence: ${score}%`,
+                    class: "text-blue-500 font-bold text-lg",
+                  },
+                  {
+                    p: `Correct attempts: ${store.randomSentence.correctAttempts}`,
+                    class: "text-green-500 font-bold",
+                  },
+                  {
+                    p: `Incorrect attempts: ${store.randomSentence.incorrectAttempts}`,
+                    class: "text-red-500 font-bold",
+                  },
+                ],
+                class: "mt-4 flex flex-col items-center space-y-2",
+              },
+            ],
+            class: "p-4",
+          },
+        ];
+      }
+
+      async function configRoute(emit) {
+        return [
+          header(store),
+          {
+            div: [
+              {
+                h1: "Language",
+                class: "text-lg font-bold mb-2",
+              },
+              {
+                input: [],
+                type: "text",
+                placeholder: "Language",
+                value: localStorage.getItem("language") || "",
+                class:
+                  "w-full mt-2 mb-4 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                id: "language",
+              },
+              {
+                h1: "Configure Airtable Connection",
+                class: "text-lg font-bold mb-2",
+              },
+              {
+                input: [],
+                type: "text",
+                placeholder: "Airtable Base ID",
+                value: localStorage.getItem("airtableBaseId") || "",
+                class:
+                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                id: "baseId",
+              },
+              {
+                input: [],
+                type: "text",
+                placeholder: "Airtable Table ID",
+                value: localStorage.getItem("airtableTableId") || "",
+                class:
+                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                id: "tableId",
+              },
+              {
+                input: [],
+                type: "text",
+                placeholder: "Airtable Access Token",
+                value: localStorage.getItem("airtableAccessToken") || "",
+                class:
+                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                id: "accessToken",
+              },
+              {
+                button: "Save Configuration",
+                class:
+                  "w-full mt-4 bg-black text-white p-3 rounded-lg shadow cursor-pointer",
+                onclick: () => {
+                  emit("save-config");
+                },
+              },
+            ],
+            class: "p-4",
+          },
+        ];
+      }
+
+      /**
+       * Retrieves a random sentence from the store's data array.
+       * Ensures that the new random sentence is different from the current one.
+       *
+       * @param {Object} store - The store object containing the data array.
+       * @returns {Object} A randomly selected sentence object.
+       */
+      function getRandomSentence(store) {
+        const randomIndex = Math.floor(Math.random() * store.data.length);
+        let newRandomSentence = store.data[randomIndex];
+
+        if (
+          store.randomSentence &&
+          newRandomSentence.id === store.randomSentence.id
+        ) {
+          return getRandomSentence(store);
+        }
+
+        return newRandomSentence;
+      }
+
+      function isAutoGenerateButtonDisabled() {
+        const english = document.querySelector(
+          'input[placeholder="English"]'
+        )?.value;
+        return !english;
+      }
+
+      function isAddButtonDisabled() {
+        const native = document.querySelector(
+          'input[placeholder="Native"]'
+        )?.value;
+        const phonetic = document.querySelector(
+          'input[placeholder="Phonetic"]'
+        )?.value;
+        const english = document.querySelector(
+          'input[placeholder="English"]'
+        )?.value;
+
+        return !native || !phonetic || !english;
+      }
+
+      function header(store) {
+        return {
+          div: [{ h1: "Phonetic", class: "text-xl font-bold" }],
+          class: "bg-black text-white p-4 cursor-pointer",
+          onclick: () => {
+            window.location.hash = "";
+            store.randomSentence = null;
+          },
+        };
+      }
+
+      function sentenceCard(native, phonetic, english) {
+        return {
+          div: [
+            {
+              p: native,
+              class: "text-lg font-bold",
+            },
+            {
+              p: phonetic,
+              class: "text-sm text-muted-foreground",
+            },
+            {
+              p: english,
+              class: "text-sm",
+            },
+          ],
+          class:
+            "mt-4 bg-card text-card-foreground p-3 rounded-lg shadow cursor-pointer",
+        };
+      }
+
+      /**
+       * Displays a toast notification and automatically hides it after a set duration.
+       *
+       * @param {Object} store - The application's store object.
+       * @param {string} message - The message to display in the toast.
+       * @param {string} type - The type of toast, either "success" or "error".
+       * @param {Function} render - The function to call to re-render the component.
+       */
+      function showToast(store, message, type, render) {
+        store.toast.message = message;
+        store.toast.class = `p-4 rounded-lg shadow-lg ${
+          type === "success" ? "bg-green-500" : "bg-red-500"
+        } text-white mb-2`;
+
+        setTimeout(() => {
+          store.toast.class = "opacity-0 transition-opacity duration-300";
+          render("toast-container");
+          setTimeout(() => {
+            store.toast.message = null;
+            store.toast.class = null;
+            render("toast-container");
+          }, 300);
+        }, 5000);
+      }
+
+      const routes = {
+        "": indexRoute,
+        add: addRoute,
+        practice: practiceRoute,
+        config: configRoute,
+      };
+
+      const events = {
+        "update-search": (data, render) => {
+          const searchText = data.searchText;
+
+          if (!searchText) {
+            store.filteredData = null;
+          } else {
+            const filteredData = store.data.filter(
+              (sentence) =>
+                sentence.native
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase()) ||
+                sentence.english
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase()) ||
+                sentence.phonetic
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
+            );
+            store.filteredData = filteredData;
+          }
+
+          render("sentences");
+        },
+        "auto-generate": async (data, render) => {
+          const englishInput = document.querySelector(
+            'input[placeholder="English"]'
+          );
+          const nativeInput = document.querySelector(
+            'input[placeholder="Native"]'
+          );
+          const phoneticInput = document.querySelector(
+            'input[placeholder="Phonetic"]'
+          );
+
+          if (englishInput.value) {
+            try {
+              store.generating = true;
+              render("auto-generate-button");
+              const response = await fetch(
+                "https://asnewman-translate.web.val.run",
+                {
+                  method: "POST",
+                  body: JSON.stringify({
+                    language: localStorage.getItem("language"),
+                    english: englishInput.value,
+                  }),
+                }
+              );
+
+              if (response.ok) {
+                const data = await response.json();
+                nativeInput.value = data.native;
+                phoneticInput.value = data.phonetic;
+                render("add-button");
+              } else {
+                console.error("Error generating translation");
+              }
+            } catch (error) {
+              console.error("Error:", error);
+            } finally {
+              store.generating = false;
+              render("auto-generate-button");
+            }
+          }
+        },
+        add: (data, render) => {
+          const native = document.querySelector(
+            'input[placeholder="Native"]'
+          ).value;
+          const phonetic = document.querySelector(
+            'input[placeholder="Phonetic"]'
+          ).value;
+          const english = document.querySelector(
+            'input[placeholder="English"]'
+          ).value;
+
+          writeData(
+            {
+              native,
+              phonetic,
+              english,
+              correctAttempts: 0,
+              incorrectAttempts: 0,
+            },
+            true
+          ) // Set to true to use the database
+            .then((newRecord) => {
+              store.data.push({
+                id: newRecord.id,
+                ...newRecord.fields,
+              });
+              window.location.hash = "";
+            })
+            .catch((error) => {
+              console.error("Failed to add new sentence:", error);
+              // Handle the error (e.g., show an error message to the user)
+            });
+        },
+        "render-ids": (data, render) => {
+          data.forEach((id) => {
+            render(id);
+          });
+        },
+        check: (data, render) => {
+          const userInput = document
+            .querySelector('input[placeholder="Type the translation..."]')
+            .value.trim()
+            .toLowerCase();
+          const correctAnswer = store.randomSentence.phonetic.toLowerCase();
+
+          if (userInput === correctAnswer) {
+            store.randomSentence.correctAttempts++;
+            showToast(store, "Correct! Well done!", "success", render);
+          } else {
+            store.randomSentence.incorrectAttempts++;
+            showToast(
+              store,
+              `Incorrect. The correct answer is: ${store.randomSentence.phonetic}`,
+              "error",
+              render
+            );
+          }
+
+          render();
+          setTimeout(() => {
+            store.randomSentence = getRandomSentence(store);
+            render();
+          }, 2000);
+        },
+        "save-config": (data, render) => {
+          localStorage.setItem(
+            "language",
+            document.getElementById("language").value
+          );
+          localStorage.setItem(
+            "airtableBaseId",
+            document.getElementById("baseId").value
+          );
+          localStorage.setItem(
+            "airtableTableId",
+            document.getElementById("tableId").value
+          );
+          localStorage.setItem(
+            "airtableAccessToken",
+            document.getElementById("accessToken").value
+          );
+          showToast(
+            store,
+            "Configuration saved successfully!",
+            "success",
+            render
+          );
+        },
+      };
+
+      let store = {};
+
+      getData(true).then((data) => {
+        store = {
+          data: data,
+          filteredData: null,
+          generating: false,
+          randomSentence: null,
+          toast: {
+            message: null,
+            class: null,
+          },
+        };
+        const ash = new window.Ash(routes, events);
+      });
+    </script>
+  </body>
+</html>
