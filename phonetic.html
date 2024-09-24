@@ -11,8 +11,10 @@
   <body class="">
     <div id="ashjs"></div>
     <!-- <script src="./script.js" type="module"></script> -->
-    <script>
-      function getData(useDatabase) {
+    <script type="text/javascript">
+      const useDatabase = true;
+
+      function getData() {
         if (useDatabase) {
           const baseId = localStorage.getItem("airtableBaseId");
           const tableId = localStorage.getItem("airtableTableId");
@@ -70,7 +72,7 @@
         }
       }
 
-      function writeData(record, useDatabase) {
+      function writeData(record) {
         if (useDatabase) {
           const baseId = localStorage.getItem("airtableBaseId");
           const tableId = localStorage.getItem("airtableTableId");
@@ -120,6 +122,43 @@
         }
       }
 
+      function updateRecord(record) {
+        if (useDatabase) {
+          const baseId = localStorage.getItem("airtableBaseId");
+          const tableId = localStorage.getItem("airtableTableId");
+          const accessToken = localStorage.getItem("airtableAccessToken");
+
+          if (!baseId || !tableId || !accessToken) {
+            console.error("Airtable credentials not found in localStorage");
+            return Promise.reject("Airtable credentials not found");
+          }
+
+          return fetch(
+            `https://api.airtable.com/v0/${baseId}/${tableId}/${record.id}`,
+            {
+              method: "PATCH",
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                fields: {
+                  correctAttempts: record.correctAttempts || 0,
+                  incorrectAttempts: record.incorrectAttempts || 0,
+                },
+              }),
+            }
+          );
+        } else {
+          const recordIndex = store.data.findIndex(
+            (item) => item.id === record.id
+          );
+          if (recordIndex !== -1) {
+            store.data[recordIndex] = record;
+          }
+        }
+      }
+
       async function indexRoute(emit) {
         return [
           header(store),
@@ -147,7 +186,9 @@
                   sentenceCard(
                     sentence.native,
                     sentence.phonetic,
-                    sentence.english
+                    sentence.english,
+                    sentence.correctAttempts,
+                    sentence.incorrectAttempts
                   )
                 ),
                 id: "sentences",
@@ -255,6 +296,29 @@
               )
             : 0;
 
+        let hintColor = "text-gray-400";
+
+        if (store.hintProgress.status === "correct") {
+          hintColor = "text-green-500";
+        } else if (store.hintProgress.status === "partial") {
+          hintColor = "text-gray-500";
+        } else if (store.hintProgress.status === "incorrect") {
+          hintColor = "text-red-500";
+        }
+
+        const dontKnowHintP = [];
+        if (store.hintProgress.status === "partial") {
+          dontKnowHintP.push({
+            span: store.randomSentence.phonetic.slice(0, store.hintProgress.to),
+            class: "text-yellow-500",
+          });
+        }
+        dontKnowHintP.push({
+          span: store.randomSentence.phonetic.slice(
+            store.hintProgress.to,
+            store.hintProgress.length
+          ),
+        });
         return [
           header(store),
           {
@@ -265,23 +329,41 @@
               },
               {
                 p: store.randomSentence.english,
-                class: "text-xl mb-4",
+                class: "text-xl",
+              },
+              {
+                p: dontKnowHintP,
+                id: "dont-know-hint",
+                class: `text-sm ${hintColor} font-bold ${
+                  store.dontKnowHintVisible ? "block" : "hidden"
+                }`,
               },
               {
                 input: [],
                 type: "text",
                 placeholder: "Type the translation...",
                 class:
-                  "w-full mt-2 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
-                oninput: (e) => emit("render-ids", ["check-button"]),
+                  "w-full mt-6 px-3 py-2.5 text-sm rounded-sm border bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cccccc]",
+                oninput: (e) => {
+                  emit("render-ids", ["check-button"]);
+                  emit("check-hint");
+                },
               },
               {
-                button: "Check",
+                button: store.dontKnowHintVisible ? "Next" : "Check",
                 id: "check-button",
                 class:
                   "w-full mt-4 bg-blue-500 text-white p-3 rounded-lg shadow cursor-pointer disabled:bg-gray-400",
                 onclick: () => {
                   emit("check");
+                },
+              },
+              {
+                button: "I don't know",
+                class:
+                  "w-full mt-2 bg-gray-500 text-white p-3 rounded-lg shadow cursor-pointer",
+                onclick: () => {
+                  emit("dont-know");
                 },
               },
               {
@@ -435,7 +517,21 @@
         };
       }
 
-      function sentenceCard(native, phonetic, english) {
+      function sentenceCard(
+        native,
+        phonetic,
+        english,
+        correctAttempts,
+        incorrectAttempts
+      ) {
+        const percentage = Math.round(
+          (correctAttempts / (correctAttempts + incorrectAttempts)) * 100
+        );
+        const scoreText = Number.isInteger(percentage)
+          ? `Score: ${percentage}%`
+          : "";
+
+        const totalAttempts = correctAttempts + incorrectAttempts;
         return {
           div: [
             {
@@ -450,9 +546,14 @@
               p: english,
               class: "text-sm",
             },
+            {
+              p: scoreText,
+              class:
+                "text-blue-500 font-bold text-sm absolute bottom-3 right-4",
+            },
           ],
           class:
-            "mt-4 bg-card text-card-foreground p-3 rounded-lg shadow cursor-pointer",
+            "mt-4 bg-card text-card-foreground p-3 rounded-lg shadow cursor-pointer relative",
         };
       }
 
@@ -592,31 +693,57 @@
             render(id);
           });
         },
-        check: (data, render) => {
-          const userInput = document
-            .querySelector('input[placeholder="Type the translation..."]')
-            .value.trim()
-            .toLowerCase();
-          const correctAnswer = store.randomSentence.phonetic.toLowerCase();
-
-          if (userInput === correctAnswer) {
-            store.randomSentence.correctAttempts++;
-            showToast(store, "Correct! Well done!", "success", render);
+        check: async (data, render) => {
+          if (store.dontKnowHintVisible) {
+            store.dontKnowHintVisible = false;
+            store.hintProgress = {
+              status: null,
+              from: null,
+              to: null,
+            };
           } else {
-            store.randomSentence.incorrectAttempts++;
-            showToast(
-              store,
-              `Incorrect. The correct answer is: ${store.randomSentence.phonetic}`,
-              "error",
-              render
-            );
+            const userInput = document
+              .querySelector('input[placeholder="Type the translation..."]')
+              .value.trim()
+              .toLowerCase();
+            const correctAnswer = store.randomSentence.phonetic.toLowerCase();
+
+            if (userInput === correctAnswer) {
+              showToast(store, "Correct! Well done!", "success", render);
+              await updateRecord(
+                {
+                  ...store.randomSentence,
+                  correctAttempts: store.randomSentence.correctAttempts + 1,
+                },
+                true
+              );
+            } else {
+              await updateRecord(
+                {
+                  ...store.randomSentence,
+                  incorrectAttempts: store.randomSentence.incorrectAttempts + 1,
+                },
+                true
+              );
+              showToast(
+                store,
+                `Incorrect. The correct answer is: ${store.randomSentence.phonetic}`,
+                "error",
+                render
+              );
+            }
           }
 
           render();
-          setTimeout(() => {
+          if (store.dontKnowHintVisible) {
             store.randomSentence = getRandomSentence(store);
             render();
-          }, 2000);
+          } else {
+            setTimeout(() => {
+              store.randomSentence = getRandomSentence(store);
+              render();
+            }, 2000);
+          }
         },
         "save-config": (data, render) => {
           localStorage.setItem(
@@ -642,6 +769,51 @@
             render
           );
         },
+        "dont-know": (data, render) => {
+          store.dontKnowHintVisible = true;
+          render("dont-know-hint");
+        },
+        "check-hint": (data, render) => {
+          if (store.dontKnowHintVisible === false) {
+            return;
+          }
+
+          // highlight hint based on user input
+          // if user input is correct, highlight the hint in green
+          // if user input is incorrect, highlight the hint in red
+          // if user input is partially correct, highlight the hint in yellow
+          const input = document.querySelector(
+            'input[placeholder="Type the translation..."]'
+          );
+          const hintElement = document.getElementById("dont-know-hint");
+          const hint = store.randomSentence.phonetic.toLowerCase();
+          const inputText = input.value.trim().toLowerCase();
+
+          console.log({
+            inputText,
+            hint,
+          });
+
+          if (inputText === hint) {
+            store.hintProgress = {
+              status: "correct",
+            };
+          } else if (hint.includes(inputText)) {
+            hintElement.style.color = "yellow";
+            store.hintProgress = {
+              status: "partial",
+              // set "to" to the index of the last character in inputText
+              to: inputText.length,
+            };
+          } else {
+            hintElement.style.color = "red";
+            store.hintProgress = {
+              status: "incorrect",
+            };
+          }
+
+          render("dont-know-hint");
+        },
       };
 
       let store = {};
@@ -655,6 +827,11 @@
           toast: {
             message: null,
             class: null,
+          },
+          dontKnowHintVisible: false,
+          hintProgress: {
+            status: null,
+            to: null,
           },
         };
         const ash = new window.Ash(routes, events);
