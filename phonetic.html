@@ -194,7 +194,7 @@
                 id: "sentences",
               },
             ],
-            class: "p-4",
+            class: "p-4 mb-16",
           },
           {
             div: [
@@ -282,17 +282,17 @@
       }
 
       async function practiceRoute(emit) {
-        if (store.randomSentence === null) {
-          store.randomSentence = getRandomSentence(store);
+        if (store.practiceSession.current === null) {
+          startNewPracticeSession(store);
         }
 
         const totalAttempts =
-          store.randomSentence.correctAttempts +
-          store.randomSentence.incorrectAttempts;
+          store.practiceSession.current.correctAttempts +
+          store.practiceSession.current.incorrectAttempts;
         const score =
           totalAttempts > 0
             ? Math.round(
-                (store.randomSentence.correctAttempts / totalAttempts) * 100
+                (store.practiceSession.current.correctAttempts / totalAttempts) * 100
               )
             : 0;
 
@@ -309,12 +309,12 @@
         const dontKnowHintP = [];
         if (store.hintProgress.status === "partial") {
           dontKnowHintP.push({
-            span: store.randomSentence.phonetic.slice(0, store.hintProgress.to),
+            span: store.practiceSession.current.phonetic.slice(0, store.hintProgress.to),
             class: "text-yellow-500",
           });
         }
         dontKnowHintP.push({
-          span: store.randomSentence.phonetic.slice(
+          span: store.practiceSession.current.phonetic.slice(
             store.hintProgress.to,
             store.hintProgress.length
           ),
@@ -328,7 +328,7 @@
                 class: "text-lg font-bold mb-4",
               },
               {
-                p: store.randomSentence.english,
+                p: store.practiceSession.current.english,
                 class: "text-xl",
               },
               {
@@ -352,6 +352,7 @@
               {
                 button: store.dontKnowHintVisible ? "Next" : "Check",
                 id: "check-button",
+                ...(store.loadingNextPracticeSentence ? { disabled: "" } : {}),
                 class:
                   "w-full mt-4 bg-blue-500 text-white p-3 rounded-lg shadow cursor-pointer disabled:bg-gray-400",
                 onclick: () => {
@@ -385,11 +386,11 @@
                     class: "text-blue-500 font-bold text-lg",
                   },
                   {
-                    p: `Correct attempts: ${store.randomSentence.correctAttempts}`,
+                    p: `Correct attempts: ${store.practiceSession.current.correctAttempts}`,
                     class: "text-green-500 font-bold",
                   },
                   {
-                    p: `Incorrect attempts: ${store.randomSentence.incorrectAttempts}`,
+                    p: `Incorrect attempts: ${store.practiceSession.current.incorrectAttempts}`,
                     class: "text-red-500 font-bold",
                   },
                 ],
@@ -404,6 +405,18 @@
       async function configRoute(emit) {
         return [
           header(store),
+          {
+            div: [
+              store.toast.message
+                ? {
+                    p: store.toast.message,
+                    class: store.toast.class,
+                  }
+                : { div: "" },
+            ],
+            id: "toast-container",
+            class: "fixed top-4 right-4 z-50",
+          },
           {
             div: [
               {
@@ -464,25 +477,23 @@
         ];
       }
 
-      /**
-       * Retrieves a random sentence from the store's data array.
-       * Ensures that the new random sentence is different from the current one.
-       *
-       * @param {Object} store - The store object containing the data array.
-       * @returns {Object} A randomly selected sentence object.
-       */
-      function getRandomSentence(store) {
-        const randomIndex = Math.floor(Math.random() * store.data.length);
-        let newRandomSentence = store.data[randomIndex];
+      function startNewPracticeSession(store) {
+        const orderedSentences = store.data.sort(
+          (a, b) => {
+            if (b.correctAttempts === 0 && b.incorrectAttempts === 0) return 1;
+            if (a.correctAttempts === 0 && a.incorrectAttempts === 0) return -1;
 
-        if (
-          store.randomSentence &&
-          newRandomSentence.id === store.randomSentence.id
-        ) {
-          return getRandomSentence(store);
-        }
-
-        return newRandomSentence;
+            const aScore = a.correctAttempts / (a.correctAttempts + a.incorrectAttempts);
+            const bScore = b.correctAttempts / (b.correctAttempts + b.incorrectAttempts);
+            return aScore - bScore;
+          }
+        );
+        const current = orderedSentences.shift();
+        store.practiceSession = {
+          toPractice: orderedSentences,
+          practiced: [],
+          current,
+        };
       }
 
       function isAutoGenerateButtonDisabled() {
@@ -512,7 +523,9 @@
           class: "bg-black text-white p-4 cursor-pointer",
           onclick: () => {
             window.location.hash = "";
-            store.randomSentence = null;
+            store.practiceSession.current = null;
+            store.practiceSession.practiced = [];
+            store.practiceSession.toPractice = [];
           },
         };
       }
@@ -570,6 +583,7 @@
         store.toast.class = `p-4 rounded-lg shadow-lg ${
           type === "success" ? "bg-green-500" : "bg-red-500"
         } text-white mb-2`;
+        render("toast-container");
 
         setTimeout(() => {
           store.toast.class = "opacity-0 transition-opacity duration-300";
@@ -694,6 +708,8 @@
           });
         },
         check: async (data, render) => {
+          store.loadingNextPracticeSentence = true;
+          render("check-button");
           if (store.dontKnowHintVisible) {
             store.dontKnowHintVisible = false;
             store.hintProgress = {
@@ -701,51 +717,49 @@
               from: null,
               to: null,
             };
+            store.practiceSession.toPractice.push(store.practiceSession.current);
+            store.practiceSession.current = store.practiceSession.toPractice.shift();
           } else {
             const userInput = document
               .querySelector('input[placeholder="Type the translation..."]')
               .value.trim()
               .toLowerCase();
-            const correctAnswer = store.randomSentence.phonetic.toLowerCase();
+            const correctAnswer = store.practiceSession.current.phonetic.toLowerCase();
 
             if (userInput === correctAnswer) {
               showToast(store, "Correct! Well done!", "success", render);
               await updateRecord(
                 {
-                  ...store.randomSentence,
-                  correctAttempts: store.randomSentence.correctAttempts + 1,
+                  ...store.practiceSession.current,
+                  correctAttempts: store.practiceSession.current.correctAttempts + 1,
                 },
                 true
               );
+              store.practiceSession.practiced.push(store.practiceSession.current);
+              store.practiceSession.current = store.practiceSession.toPractice.shift();
             } else {
               await updateRecord(
                 {
-                  ...store.randomSentence,
-                  incorrectAttempts: store.randomSentence.incorrectAttempts + 1,
+                  ...store.practiceSession.current,
+                  incorrectAttempts: store.practiceSession.current.incorrectAttempts + 1,
                 },
                 true
               );
               showToast(
                 store,
-                `Incorrect. The correct answer is: ${store.randomSentence.phonetic}`,
+                `Incorrect. The correct answer is: ${store.practiceSession.current.phonetic}`,
                 "error",
                 render
               );
+              store.practiceSession.toPractice.push(store.practiceSession.current);
+              store.practiceSession.current = store.practiceSession.toPractice.shift();
             }
           }
 
+          store.loadingNextPracticeSentence = false;
           render();
-          if (store.dontKnowHintVisible) {
-            store.randomSentence = getRandomSentence(store);
-            render();
-          } else {
-            setTimeout(() => {
-              store.randomSentence = getRandomSentence(store);
-              render();
-            }, 2000);
-          }
         },
-        "save-config": (data, render) => {
+        "save-config": (data, render, emit) => {
           localStorage.setItem(
             "language",
             document.getElementById("language").value
@@ -768,6 +782,7 @@
             "success",
             render
           );
+          emit("refresh-data");
         },
         "dont-know": (data, render) => {
           store.dontKnowHintVisible = true;
@@ -786,13 +801,8 @@
             'input[placeholder="Type the translation..."]'
           );
           const hintElement = document.getElementById("dont-know-hint");
-          const hint = store.randomSentence.phonetic.toLowerCase();
+          const hint = store.practiceSession.current.phonetic.toLowerCase();
           const inputText = input.value.trim().toLowerCase();
-
-          console.log({
-            inputText,
-            hint,
-          });
 
           if (inputText === hint) {
             store.hintProgress = {
@@ -814,6 +824,12 @@
 
           render("dont-know-hint");
         },
+        "refresh-data": (data, render) => {
+          getData(true).then((data) => {
+            store.data = data;
+            render();
+          });
+        },
       };
 
       let store = {};
@@ -823,7 +839,11 @@
           data: data,
           filteredData: null,
           generating: false,
-          randomSentence: null,
+          practiceSession: {
+            toPractice: [],
+            practiced: [],
+            current: null,
+          },
           toast: {
             message: null,
             class: null,
@@ -833,6 +853,7 @@
             status: null,
             to: null,
           },
+          loadingNextPracticeSentence: false,
         };
         const ash = new window.Ash(routes, events);
       });
