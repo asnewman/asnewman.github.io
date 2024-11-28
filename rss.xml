@@ -16,6 +16,37 @@
 			<link>https://asnewman.github.io/</link>
 		</image>
 		<item>
+			<title>Question Best Practices</title>
+			<link>https://ajkprojects.com/questionbestpractices</link>
+			<pubDate>Thu, 28 Nov 2024 17:00:00 GMT</pubDate>
+			<author>ashleynewman@protonmail.com (Ash)</author>
+			<category>work</category>
+			<description>
+				<![CDATA[Why you should reevalutae best practices.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px">
+      <p><a href="/">Home</a></p>
+      <h1>Question Best Practices</h1>
+      <p>
+        Entering a new field of study is often overwhelming due to the amount of new information and concepts to grasp. Often, it’s helpful to lean on established best practices that have been tried and tested by experts in the field. However, as you gain more experience, examining and questioning these practices is important to fully understand when to use them and, more importantly, when to avoid them.
+      </p>
+      <p>
+        An example from my experience as a programmer involves managing file sizes in codebases. In college, one of my classes strictly enforced a rule on the maximum size a single code file could be. The general best practice in programming is to avoid large files that attempt to do too much. As a result, programmers often develop an ingrained belief that large files are inherently bad. However, with experience and a bit of reevaluation, it becomes clear that such a rule may not always apply. Depending on the language and the organizational needs of the code, there are valid scenarios where larger files make sense.
+      </p>
+      <p>
+        Some other programming best practices I’ve recently questioned include avoiding global states, strictly adhering to functional programming (FP) or object-oriented programming (OOP), and always choosing declarative programming over imperative programming. In certain scenarios, following these best practices can be more detrimental than beneficial, and I could have only truly comprehended this by questioning best practices and intentionally disregarding them during experimentation.
+      </p>
+      <p>
+        Beyond programming, questioning best practices in any field is crucial for growth and becoming a true expert. Without it, one cannot truly understand the why and when of best practices. As a result, be cautious of critics who dismiss your deviations from best practices without providing a valid explanation for the specific context. Such contributions come from parrots, not experts.
+      </p>
+      <p>
+        I’d love to hear from those who have had this realization in their field of interest or work. Please email me at ashleynewman@protonmail.com.
+      </p>
+    </div>]]>
+			</content:encoded>
+		</item>
+		<item>
 			<title>Talk Less in Meetings</title>
 			<link>https://ajkprojects.com/talklessinmeetings</link>
 			<pubDate>Tue, 20 Sep 2024 06:08:00 GMT</pubDate>
