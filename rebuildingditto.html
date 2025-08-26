@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-P9405HFNTS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-P9405HFNTS");
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rebuilding Ditto</title>
+  </head>
+  <body>
+    <div style="max-width: 600px">
+      <p><a href="/">Home</a></p>
+      <h1 id="rebuilding-ditto">Rebuilding Ditto</h1>
+<p>Nine months ago, we made the decision at work to rebuild <a href="www.dittowords.com">Ditto</a> (a source of truth copy management tool). The overall goal of the product has stayed the same, but the way we model data inside the product has changed. <a href="https://www.dittowords.com/post/new-features-of-new-ditto">Text has become even more of a first-class citizen</a>, and that shift in foundation meant we needed to rethink and rebuild the system that runs Ditto.</p>
+<p>The idea of a rewrite is always a mix of excitement and fear. Starting fresh sounds amazing. But the reality is you cannot throw everything away. It has taken years to get Ditto to where it is today. The real challenge is deciding what to rebuild, what to evolve, and what to leave as is.</p>
+<p>Some things we knew we had to rebuild. Syncing between Figma and Ditto is one of the most complex parts of our system, especially at scale. Because the new model fundamentally changed how sync worked, it was the perfect chance to redesign that system from everything we had learned.</p>
+<p>Other areas made more sense to evolve. For example, how we represent variables and variants did not change much. The underlying model still worked well, so small updates, like aligning the UI with our new design language, were enough.</p>
+<p>And sometimes the right decision was to leave things alone. Our text editor is a good example. Over time, it has become complex through years of iteration. Part of me wanted to scrap it and start fresh. But it works, and rebuilding it would have exploded the project’s scope. Resisting that emotional instinct to rewrite because it feels “cleaner” has been one of the most important principles to follow during this process.</p>
+<h2 id="balancing-legacy-vs-new">Balancing Legacy vs New</h2>
+<p>This rebuild has also opened a lot of doors. Some areas still need feature parity with legacy Ditto. Others give us brand new possibilities that were never possible before. But none of this happens in a vacuum. We are still supporting our legacy product as users transition to the new system. V2 is the future of Ditto, but we cannot simply walk away from what already exists. That means being deliberate about how much engineering time and effort we allocate to legacy maintenance, like not taking on major refactors in legacy anymore, and instead, focusing on targeted bug fixes and assigning engineering capacity accordingly.</p>
+<p>This approach also affects how we onboard new teammates. For engineers who joined recently, the legacy system was already marked “legacy” when they started. Their day-to-day focus is on V2, and so learning the legacy system isn’t part of their onboarding plan. But when legacy issues do come up, longer-tenured teammates provide the historical context and review fixes to make sure the changes still make sense as a part of the legacy system.</p>
+<p>Over time though, inevitably, a smaller and smaller percentage of us will have worked on the original Ditto. That makes it even more important for users to switch over. Our primary motivator for that shift is not just that legacy support will eventually wind down, but that V2 unlocks so many exciting new features to make copy management easier. The future of Ditto is in V2, and that is what makes this such an energizing moment for me and the team.</p>
+<p>This journey has been a practice in striking a balance between excitement and practicality. Despite the challenges, it is one of the most energizing projects I have ever been part of. If this kind of work excites you, check out <a href="https://www.dittowords.com/careers">Ditto’s careers page</a>. We are hiring!</p>
+    </div>
+  </body>
+</html>
