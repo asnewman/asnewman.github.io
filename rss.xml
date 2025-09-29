@@ -16,6 +16,49 @@
 			<link>https://asnewman.github.io/</link>
 		</image>
 		<item>
+			<title>FSD, Pluck, and Below Deck Season 12</title>
+			<link>https://asnewman.github.io/fsdpluckbelowdeck</link>
+			<pubDate>Sun, 29 Sep 2025 12:00:00 GMT</pubDate>
+			<author>ashleynewman@protonmail.com (Ash)</author>
+			<category>life</category>
+			<description>
+				<![CDATA[A blogging series covering Tesla's Full Self-Driving, my Mac app Pluck, and Below Deck Season 12.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px">
+      <p>I'm starting a blogging series where I write about a few random topics that are topical to my life at the time. I'm hoping it will serve as a mechanism for sending periodic life updates to those who are interested and to spark conversations with people online. In this post, I will discuss my recent experiences with Tesla's Full Self-Driving, a Mac app switcher I created called Pluck, and the latest season of the reality show Below Deck.</p>
+      <h2>FSD</h2>
+      <img style="max-width: 600px;" src="https://raw.githubusercontent.com/asnewman/asnewman.github.io/refs/heads/main/assets/teslaselfdrive.png" alt="tesla self driving" />
+      <p>I've recently enabled the $100/mo Full Self-Driving feature on my Tesla Model 3. $100/mo is relatively steep (in addition to the regular car payments), but with a few upcoming long road trips, it made sense to bite the bullet.</p>
+      <p>This isn't the first time I've used FSD in my car, as it came with a free trial month when I started my lease a year ago. Comparing the FSD experience from then versus now, I will say it has improved. Most notably, it does less aggressive overtaking than it used to, which is great, as I used to have to intervene on the freeway to prevent cutting people off.</p>
+      <p>It definitely isn't perfect yet, though. So far, I've had instances where I needed to intervene in:</p>
+      <ul>
+      <li>Complicated intersections with various different turn lanes</li>
+      <li>Ignoring an exit on an expressway</li>
+      <li>Some sketchy right turns on reds</li>
+      <li>Confusion with faded street markings, especially if the car in front messes up</li>
+      </ul>
+      <p>I've also had a situation where the system falsely believed I had a device installed to skirt the attention detection system.</p>
+      <p>Despite its imperfections, because it handles 95% of situations, my recent drive from San Diego to San Jose (~8 hours with charging) was far less fatiguing than if I had driven manually.</p>
+      <p>As a side note, there are many parallels between this type of driving and what coding can look like today. Primarily performed by a machine, but closely monitored and adjusted by a human.</p>
+      <p>After 30 days, I will cancel the subscription purely based on cost, but I will definitely enable it again for my next big road trip.</p>
+      <h2>Pluck</h2>
+      <img style="max-width: 600px;" src="https://raw.githubusercontent.com/asnewman/asnewman.github.io/refs/heads/main/assets/pluckmacappstore.png" alt="pluck on the mac app store" />
+      <p>One thing that's always bothered me about macOS (and Windows) is how alt-tabbing works. Because the order of applications is constantly changing based on recency, it feels almost indeterministic on how many tab presses you need to make to get to the application you want. The system works effectively only when switching back and forth between two applications. As a result, I wanted something better.</p>
+      <p>I've seen some Linux setups where users switch to applications via hotkeys. Inspired by that, I made a macOS utility called <a href="https://apps.apple.com/us/app/pluck-app-hotkeys/id6748286902?mt=12">Pluck</a>. You can create hotkeys for applications (for example, cmd+option+s for Safari), but it also comes with an alternative trigger method that I prefer. Inspired by IntelliJ editors, double-tapping Shift triggers a launch menu to appear, listing your applications and their associated keys. So, if I need Safari, I can always reliably and quickly switch to it by pressing Shift->Shift->S.</p>
+      <p>When I first started using it, I found it challenging to break the alt-tabbing habit. I struggled with it enough that I added a feature to Pluck to disable alt-tabbing. After enabling that, I haven't looked back, and it is now an integral part of how I use my computer.</p>
+      <p>Also, this was my first time fully releasing an app to the Mac App Store. I even put a price tag on it ($2), and to my surprise, I've had a couple of strangers buy it! It's been a cool experience, despite the numerous hurdles you have to go through with Apple to release something on the Mac App Store. It does make me grateful that I primarily create websites.</p>
+      <h2>Below Deck Season 12</h2>
+      <p>I just finished watching the latest season of Below Deck. As a quick summary, Below Deck is a reality show that follows a mega yacht crew during a yachting season. There is a captain, a chef, a deck team, and an interior crew. My wife and I are big fans of the show (we've seen all the seasons from both the main Below Deck series and its offshoots).</p>
+      <p>One thing that stands out about this season is the amount of romance/intimacy. It's not a surprise, though, as one of the cast members, Solène, is a previous member of Love Island France and is the center of all of the love drama in the season.</p>
+      <p>Unfortunately, this detracted significantly from the season. For me, the best parts about the show are watching the dynamics between the crewmates, seeing the captain lead a team, and all the drunk guests embarrassing themselves. The love encounters of the show are the least interesting to me, which is why I don't watch shows like Love Island. I can't help but feel that this is the direction the show's producers are trying to take, both due to the immense popularity of shows like Love Island and the intentional casting of Solène.</p>
+      <p>Despite this, there were some good moments in the season. In particular, Captain Kerry continues to be a strong leader, Fraizer proves himself to be a very competent chief stew, and Chef Anthony has a great comeback season following his firing in the previous season.</p>
+      <p>I'll look forward to the next season, but I really hope the show returns to its regular focus and style. Otherwise, I may no longer remain a consistent watcher.</p>
+      <p>Thanks for reading! If you have any thoughts, please email me at <a href="mailto:ashleynewman@protonmail.com">ashleynewman@protonmail.com</a>. I also have a newsletter that will email whenever I have a new post. Please sign up below if you are interested.</p>
+    </div>]]>
+			</content:encoded>
+		</item>
+		<item>
 			<title>Rebuilding Ditto</title>
 			<link>https://asnewman.github.io/rebuildingditto</link>
 			<pubDate>Mon, 26 Aug 2025 12:00:00 GMT</pubDate>
