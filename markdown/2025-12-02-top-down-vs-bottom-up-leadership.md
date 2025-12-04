@@ -1,4 +1,3 @@
-
 [2/24] (Advent of Writing)[https://ajkprojects.com/hobby-depth.html]
 # Top Down vs Bottom Up Leadership
 I became an engineering manager earlier this year. One fun part of becoming a manager is defining the kind of leader you are. I’m still new at this so there’s plenty left to learn, but there’s one area where I’m starting to form a strong opinion: top-down vs bottom-up leadership.
