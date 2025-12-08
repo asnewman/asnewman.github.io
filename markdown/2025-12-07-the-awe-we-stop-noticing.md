@@ -1,4 +1,4 @@
-[6/24] [Advent of Writing](https://ajkprojects.com/hobby-depth.html)
+[7/24] [Advent of Writing](https://ajkprojects.com/hobby-depth.html)
 # The Everyday Awe We Stop Noticing
 
 Right now I am on a plane to Japan to vacation and see family/friends, 37,000 feet in the air, connected to satellite WiFi, chatting with an AI to brainstorm blog ideas. This sentence would have shocked someone just a few years ago.
