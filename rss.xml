@@ -16,6 +16,27 @@
 		<link>https://asnewman.github.io/</link>
 	</image>
 <item>
+			<title>One Second Moments</title>
+			<link>https://asnewman.github.io/one-seconds-moments</link>
+			<pubDate>Wed, 14 Jan 2026 03:37:12 GMT</pubDate>
+			<author>ashleynewman@protonmail.com (Ash)</author>
+			<category>life</category>
+			<description>
+				<![CDATA[Recording one second moments and creating yearly montages - plus building an iOS app to make editing easier]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px">
+      <h1 id="one-second-moments">One Second Moments</h1>
+<p>I&#39;ve been recording one second moments and combining them into a montage at the end of each year for a few years now. It started with a one-second-a-day project, but after the first year, an obvious issue emerged: there are many days when I have nothing interesting to show, and others when I have multiple things worth recording. What resulted was many shots of my dog being cute on boring days and missed moments on interesting days.</p>
+<p>The adjustment I made to solve this issue was to set the recording cadence to one second whenever something interesting happened. This made the montages so much better and was a more accurate reflection of my year. I find these shots much more valuable than still images because they capture so much, even in a short clip. You hear the sounds, see the movement of people, and generally capture a lot more of the moment&#39;s atmosphere. The montage that comes out of it is also so much fun to digest when you want to reminisce about a particular year.</p>
+<p>The only con of doing this is that I dread every January when I have to edit the clips together. I&#39;ve used various video editors, both on the computer and phone. But nothing out there is really made for quick editing and stitching of short clips. But in today&#39;s world, a problem like this can be solved with the help of AI. So this year, I decided to spend a week vibe-coding an iOS app for it. It&#39;s called <a href="https://apps.apple.com/us/app/moments-video-stitching/id6757146131">Moments</a> and is purposefully designed for exactly what I need.</p>
+<p>I started off wanting to create a React Native app so anyone could use it, regardless of the phone they have. But I quickly ran into an issue: there isn&#39;t a working package out there that can stitch videos together. Luckily, one of the best parts about vibe-coding is that I was able to quickly and easily identify this hurdle and abandon the React Native repo in favor of a native iOS Swift approach. The Apple ecosystem exposed tools that worked very well for my video editing needs, so I was back up and running after the pivot.</p>
+<p>One mistake I made with the app was timing. I was really hoping to release it before the New Year to catch any interest from people wanting to start this one-second-video habit, but Apple had other plans. I submitted my app on December 28 and didn&#39;t get anything published until January 5. Lesson learned: Apple takes the holidays off for App Store submissions.</p>
+<p>Regardless of whether you use my app or find another way to edit, I&#39;m confident that adding one second moments to your life will be a great addition. It doesn&#39;t take long day to day, and you&#39;re left with something so valuable. I can&#39;t wait to show my children and grandchildren these montages of what my life was like in my 20s and 30s.</p>
+    </div>]]>
+			</content:encoded>
+		</item>
+<item>
 			<title>Advent of Writing Reflection</title>
 			<link>https://asnewman.github.io/advent-of-writing-reflection</link>
 			<pubDate>Thu, 01 Jan 2026 00:50:13 GMT</pubDate>
