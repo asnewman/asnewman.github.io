@@ -16,6 +16,49 @@
 		<link>https://asnewman.github.io/</link>
 	</image>
 <item>
+			<title>Keeping Up With PRs in an Agentic World</title>
+			<link>https://asnewman.github.io/keeping-up-with-prs-in-an-agentic-world</link>
+			<pubDate>Mon, 23 Feb 2026 06:22:51 GMT</pubDate>
+			<author>ashleynewman@protonmail.com (Ash)</author>
+			<category>programming</category>
+			<description>
+				<![CDATA[Thoughts on managing PRs in an AI-assisted development workflow]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px">
+      <h1 id="keeping-up-with-prs-in-an-agentic-world">Keeping Up With PRs in an Agentic World</h1>
+<p>We are in a period of rapid change in software engineering. Agents are pushing teams to new levels of velocity never seen before. Engineers are experiencing magnified productivity gains, while non-engineers are unlocking the ability to make code changes. As a result, we now have to figure out how to keep up with all the new incoming PRs.</p>
+<p>Now, it&#39;s one thing to fully vibe code an app without caring about the code. But integrating agentic workflows into established, large, complex codebases is a completely different story. Relying on agents is not enough. We still need a human in the loop to review the code and verify that existing patterns are followed, that the code is easily understandable (to both humans and agents), and that the new changes work.</p>
+<p>But we (humans) are quickly becoming the bottleneck, and we need to make significant shifts in how we conduct code reviews to keep up with the load. Here are a few things I believe we can do now to deal with this.</p>
+<h2 id="respect-the-reviewer">Respect the Reviewer</h2>
+<p>The reviewer&#39;s time has always been precious, but the speed at which PRs can be created now makes it even more important. Sloppy PRs, poor descriptions, and bad code make the reviewer&#39;s life 10x harder. Either the reviewer will spend a lot of time on the review, or the review will be done haphazardly, which almost always bites a development team later.</p>
+<p>As a result, PR authors need to be extra careful before requesting a review. A few general points to make sure the reviewer&#39;s time is protected:</p>
+<ol>
+<li><p>Authors need to provide detailed context on what the problem is, why it&#39;s being solved, and the strategy for the solution. If the author cannot explain the solution adequately, it probably means they offloaded too much thinking to AI, and should either spend time understanding and validating the solution or delete the branch and start again.</p>
+</li>
+<li><p>Engineers, non-engineers, and AI all need to follow the team&#39;s standard PR practices. This typically means following a PR template, but can also include things like who is chosen as the reviewer. Anyone or thing that doesn&#39;t know about the standard practices needs to be informed ASAP.</p>
+</li>
+<li><p>Reviewers are encouraged to push back if any of the above are lacking or missing. Reviewers should not waste their time if the author of the PR has not put in adequate effort prior to asking for a review. Be firm and kind when doing this.</p>
+</li>
+</ol>
+<h2 id="use-ai-to-help-reviews">Use AI to Help Reviews</h2>
+<p>AI can help with reviews in two ways:</p>
+<ol>
+<li><p>Review the PR itself</p>
+</li>
+<li><p>Assist humans in reviewing</p>
+</li>
+</ol>
+<p>On the first point, there are many AI tools available that will review your code (I&#39;ve been using CodeRabbit for a few months now). These AI reviewers are definitely noisy, but I&#39;d say ~25% of the time they report valid feedback. They&#39;ve definitely stopped bugs that I&#39;ve written from going into production, which makes them worth it. The other pro is that they allow the author to start addressing feedback immediately while waiting for a human reviewer.</p>
+<p>For the second point, I&#39;ve had great success asking Claude Code to organize PRs by grouping relevant changes and gathering additional context from the surrounding code. It then walks me through the code chunk by chunk, making sure I fully understand the changes and agree with them. During the process, I can either let Claude note any comments I have or manually make them in GitHub. This is done through a <a href="https://gist.github.com/asnewman/18460ddb5fbfb32b1aaadbb9d4cbcfe2">Claude skill</a>, and it has both sped up my code reviews and made them more thorough. I highly recommend people try it out, especially if you tend to gloss over file changes during reviews.</p>
+<h2 id="be-honest-and-transparent-about-ai-usage">Be Honest and Transparent About AI Usage</h2>
+<p>I&#39;ve written a post about <a href="https://ajkprojects.com/getting-over-ai-shame.html">the importance of being transparent about AI usage</a>, not for ethical reasons, but to help teammates work better together. With code and PRs, transparency allows authors to share prompts and technical plans discussed with agents in preparation for generating the solution. This information is generally more important than what can be understood by reading the code line by line.</p>
+<hr>
+<p>So far, these are the methods I&#39;ve been trying out to manage PRs. However, I&#39;m sure I will need to keep experimenting and discovering new strategies, as I can only imagine the software world will keep moving faster. If you&#39;ve tried something different and found it effective, please let me know.</p>
+    </div>]]>
+			</content:encoded>
+		</item>
+<item>
 			<title>Getting Over AI Shame</title>
 			<link>https://asnewman.github.io/getting-over-ai-shame</link>
 			<pubDate>Tue, 03 Feb 2026 02:13:36 GMT</pubDate>
