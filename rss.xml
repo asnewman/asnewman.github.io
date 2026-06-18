@@ -16,39 +16,6 @@
 		<link>https://asnewman.github.io/</link>
 	</image>
 <item>
-			<title>Why Nihilism Is Great for Values</title>
-			<link>https://asnewman.github.io/why-nihilism-is-great-for-values</link>
-			<pubDate>Fri, 01 May 2026 18:46:08 GMT</pubDate>
-			<author>ashleynewman@protonmail.com (Ash)</author>
-			<category>philosophy</category>
-			<description>
-				<![CDATA[A reflection on how nihilism can make values personal, flexible, and freeing.]]>
-			</description>
-			<content:encoded>
-				<![CDATA[<div style="max-width: 600px">
-      <h1 id="why-nihilism-is-great-for-values">Why Nihilism Is Great for Values</h1>
-<p>On the surface, nihilism seems simple: life is meaningless, so the only logical response is a pessimistic, doomer mindset. It’s easy to see why people think this, given its reputation for attracting contrarians who reject optimism. But while nihilism does claim that life lacks inherent meaning, it can actually lead to a surprisingly positive way of thinking.</p>
-<p>To see this in practice, let’s explore how values operate in nihilism. If life has no built-in meaning, then there’s no objectively “good” or “bad” way to live. </p>
-<p>If one were to live a life valuing charity, versus a life valuing crime, objectively speaking, we cannot judge the two lives as either good or bad. Neither has a purpose in a meaningless life.</p>
-<p>However, if someone subjectively defines what is good and bad, they can evaluate different ways of living on a personal level. If a charitable life feels good while a life of crime feels bad, then charity becomes a good value, and crime becomes a bad one.</p>
-<p>This distinction of viewing values as subjective rather than objective unlocks a whole new way of life.</p>
-<p>First, it removes the basis for judging other people’s values. If values are subjective, they’re a matter of opinion, and opinions by definition cannot be wrong. In practice, this means you can stop caring about others’ choices and stop worrying about what they think of you.</p>
-<p>Second, if values are subjective, you have the freedom to choose what you value. You don’t have to be bound by what society, your community, your family, or religion prescribes. Because it’s personal, you can choose values that lead to the life you want to live. And in my view, chosen values tend to be more powerful and longer-lasting than prescribed ones.</p>
-<p>I find this way of thinking empowering, and it makes me want to apply it across different areas of my life.
-Take work, for example, where we have company values that are in place to align everyone towards the same way of thinking. With a nihilistic mindset, two, perhaps contradictory, points are unlocked:</p>
-<ol>
-<li>Despite having company values, individuals are free to adhere to whatever values they want.</li>
-<li>On a personal level, individuals can give themselves permission to temporarily change their values for work.</li>
-</ol>
-<p>On the first point, from a leader/manager’s perspective, though it’s great to have everyone on the same page regarding values, this absolves any frustration caused by individuals who choose to reject those values by practicing conflicting ones. In many instances, having a different perspective is actually beneficial. But, if someone’s values are too difficult to work with, chalking it up to a difference in choice becomes easy (and thus reassignment or parting ways becomes justified).</p>
-<p>On the second point, as an individual, you can choose to embrace a value at work even if it contradicts a personal value. For example, say you are someone who values careful, conservative thinking, but you work at a startup that values risk and speed. With nihilism, you don’t need to feel guilty about adopting work’s contradictory values. Nothing and no one is rationally allowed to judge you for it.</p>
-<hr>
-<p>Values are just one example of how nihilism can shift perspective. What initially feels like a bleak philosophy can instead become a kind of freedom. If nothing has inherent meaning, then we’re left with the responsibility, and the opportunity, to decide what matters for ourselves.</p>
-<p>If you have any additional thoughts on the matter, please reach out to me via message on X or email.</p>
-    </div>]]>
-			</content:encoded>
-		</item>
-<item>
 			<title>Bet On Centaurs</title>
 			<link>https://asnewman.github.io/bet-on-centaurs</link>
 			<pubDate>Thu, 18 Jun 2026 04:39:35 GMT</pubDate>
@@ -79,6 +46,39 @@ Take work, for example, where we have company values that are in place to align 
 <p>I was happy to see the page loading, so I started reviewing the changes. At first glance, I could not fully understand how the nested virtualized list worked. There was a fair amount of complexity involved in passing scroll state from the outer list to the inner one. I was one click away from giving up and leaving a comment on my pull request that said, &quot;I don&#39;t understand it, but it works 🤷.&quot;</p>
 <p>Instead, I stopped and spent the next 45 minutes asking Claude to teach me the underlying concepts and how they related to the implementation. Through that process, I developed a much deeper understanding of how the nested virtualized list worked. More importantly, I uncovered several flaws in the implementation that were then fixed. In that sense, Claude and I worked together to produce the best solution we could.</p>
 <p>There is no doubt in my mind that pairing AI with capable humans is the best path forward. There are still things humans can do that AI cannot, especially when people apply effort, judgment, and creativity, and I believe this is true across many fields, from programming to chess to autonomous vehicles.</p>
+    </div>]]>
+			</content:encoded>
+		</item>
+<item>
+			<title>Why Nihilism Is Great for Values</title>
+			<link>https://asnewman.github.io/why-nihilism-is-great-for-values</link>
+			<pubDate>Fri, 01 May 2026 18:46:08 GMT</pubDate>
+			<author>ashleynewman@protonmail.com (Ash)</author>
+			<category>philosophy</category>
+			<description>
+				<![CDATA[A reflection on how nihilism can make values personal, flexible, and freeing.]]>
+			</description>
+			<content:encoded>
+				<![CDATA[<div style="max-width: 600px">
+      <h1 id="why-nihilism-is-great-for-values">Why Nihilism Is Great for Values</h1>
+<p>On the surface, nihilism seems simple: life is meaningless, so the only logical response is a pessimistic, doomer mindset. It’s easy to see why people think this, given its reputation for attracting contrarians who reject optimism. But while nihilism does claim that life lacks inherent meaning, it can actually lead to a surprisingly positive way of thinking.</p>
+<p>To see this in practice, let’s explore how values operate in nihilism. If life has no built-in meaning, then there’s no objectively “good” or “bad” way to live. </p>
+<p>If one were to live a life valuing charity, versus a life valuing crime, objectively speaking, we cannot judge the two lives as either good or bad. Neither has a purpose in a meaningless life.</p>
+<p>However, if someone subjectively defines what is good and bad, they can evaluate different ways of living on a personal level. If a charitable life feels good while a life of crime feels bad, then charity becomes a good value, and crime becomes a bad one.</p>
+<p>This distinction of viewing values as subjective rather than objective unlocks a whole new way of life.</p>
+<p>First, it removes the basis for judging other people’s values. If values are subjective, they’re a matter of opinion, and opinions by definition cannot be wrong. In practice, this means you can stop caring about others’ choices and stop worrying about what they think of you.</p>
+<p>Second, if values are subjective, you have the freedom to choose what you value. You don’t have to be bound by what society, your community, your family, or religion prescribes. Because it’s personal, you can choose values that lead to the life you want to live. And in my view, chosen values tend to be more powerful and longer-lasting than prescribed ones.</p>
+<p>I find this way of thinking empowering, and it makes me want to apply it across different areas of my life.
+Take work, for example, where we have company values that are in place to align everyone towards the same way of thinking. With a nihilistic mindset, two, perhaps contradictory, points are unlocked:</p>
+<ol>
+<li>Despite having company values, individuals are free to adhere to whatever values they want.</li>
+<li>On a personal level, individuals can give themselves permission to temporarily change their values for work.</li>
+</ol>
+<p>On the first point, from a leader/manager’s perspective, though it’s great to have everyone on the same page regarding values, this absolves any frustration caused by individuals who choose to reject those values by practicing conflicting ones. In many instances, having a different perspective is actually beneficial. But, if someone’s values are too difficult to work with, chalking it up to a difference in choice becomes easy (and thus reassignment or parting ways becomes justified).</p>
+<p>On the second point, as an individual, you can choose to embrace a value at work even if it contradicts a personal value. For example, say you are someone who values careful, conservative thinking, but you work at a startup that values risk and speed. With nihilism, you don’t need to feel guilty about adopting work’s contradictory values. Nothing and no one is rationally allowed to judge you for it.</p>
+<hr>
+<p>Values are just one example of how nihilism can shift perspective. What initially feels like a bleak philosophy can instead become a kind of freedom. If nothing has inherent meaning, then we’re left with the responsibility, and the opportunity, to decide what matters for ourselves.</p>
+<p>If you have any additional thoughts on the matter, please reach out to me via message on X or email.</p>
     </div>]]>
 			</content:encoded>
 		</item>
