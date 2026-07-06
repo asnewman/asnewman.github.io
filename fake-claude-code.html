@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code — mock builder</title>
+<style>
+  :root {
+    --page: #f4f3f1;
+    --panel: #ffffff;
+    --panel-border: #dcdad5;
+    --label: #6b6862;
+    --accent: #d97757;
+    --btn: #ecebe8;
+    --btn-h: #e0ded9;
+    /* terminal theme (inside preview window) */
+    --bg: #1a1a19;
+    --fg: #e8e6e1;
+    --dim: #8a8781;
+    --dimmer: #605d58;
+    --box: #2f2e2c;
+    --rule: #3a3936;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--page); }
+  body {
+    font: 13px/1.5 ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    color: #2a2925;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    padding: 20px; height: 100vh;
+  }
+  .col { display: flex; flex-direction: column; min-height: 0; }
+  .col > .label { color: var(--label); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin: 0 2px 8px; }
+  .labelrow { display: flex; justify-content: space-between; align-items: center; }
+  .labelrow button { text-transform: none; letter-spacing: 0; }
+  .labelrow .btns { display: flex; gap: 8px; }
+
+  /* form */
+  #form {
+    flex: 1; overflow: auto; background: var(--panel);
+    border: 1px solid var(--panel-border); border-radius: 8px; padding: 14px;
+  }
+  .section { color: var(--label); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; margin: 18px 2px 8px; }
+  .section:first-child { margin-top: 2px; }
+  .fld { margin-bottom: 9px; }
+  .fld > span { display: block; color: var(--label); font-size: 11px; margin-bottom: 3px; }
+  .fld.chk { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  .fld.chk input { width: auto; }
+  .fld.chk > span { margin: 0; font-size: 13px; color: #2a2925; }
+  input, select, textarea {
+    width: 100%; font: inherit; color: #2a2925;
+    background: #fbfbfa; border: 1px solid var(--panel-border);
+    border-radius: 5px; padding: 6px 8px;
+  }
+  textarea { resize: vertical; min-height: 42px; line-height: 1.45; }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+  .card { border: 1px solid var(--panel-border); border-radius: 7px; padding: 10px; margin-bottom: 10px; background: #fafaf9; }
+  .card .bar { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .card .bar select { width: auto; flex: none; }
+  .card .bar .sp { flex: 1; }
+
+  .tools { margin-top: 8px; border-top: 1px dashed var(--panel-border); padding-top: 8px; }
+  .tools > .lbl { color: var(--label); font-size: 11px; margin-bottom: 6px; }
+  .tool-row { border: 1px solid var(--panel-border); border-radius: 6px; padding: 8px; margin-bottom: 7px; background: #fff; }
+  .tool-row .bar { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
+
+  button.b {
+    font: inherit; cursor: pointer; border: 1px solid var(--panel-border);
+    background: var(--btn); color: #2a2925; border-radius: 5px; padding: 4px 9px;
+  }
+  button.b:hover { background: var(--btn-h); }
+  button.b.icon { padding: 4px 8px; line-height: 1; }
+  button.b.del:hover { background: #f6d9d1; border-color: #e0b2a6; }
+  button.b.add { width: 100%; margin-top: 4px; }
+
+  /* preview window */
+  .window { flex: none; height: 78vh; min-height: 220px; background: var(--bg); border-radius: 8px; overflow: hidden; border: 1px solid #000; box-shadow: 0 10px 30px rgba(0,0,0,.18); display: flex; flex-direction: column; }
+  .resizer { flex: none; height: 14px; cursor: ns-resize; background: #262523; border-top: 1px solid #000; display: flex; align-items: center; justify-content: center; }
+  .resizer::before { content: ""; width: 36px; height: 3px; border-radius: 2px; background: var(--dimmer); }
+  .resizer:hover::before { background: var(--dim); }
+  .titlebar { flex: none; display: flex; align-items: center; gap: 7px; padding: 9px 12px; background: #262523; border-bottom: 1px solid #000; }
+  .titlebar .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .titlebar .dot.r { background: #ec6a5e; } .titlebar .dot.y { background: #f4bf4f; } .titlebar .dot.g { background: #61c454; }
+  .titlebar .name { color: var(--dim); font-size: 12px; margin-left: 6px; }
+  #app { flex: 1; min-height: 0; overflow: auto; padding: 20px 18px; color: var(--fg); display: flex; flex-direction: column; }
+
+  .header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px; }
+  .header h1 { font-size: 17px; font-weight: 700; margin: 0 0 3px; }
+  .header .meta { color: var(--dim); }
+  .msg { margin: 14px 0; }
+  .user { display: flex; gap: 10px; align-items: flex-start; }
+  .user .gutter { color: var(--dimmer); padding-top: 5px; }
+  .user .bubble { background: var(--box); border-radius: 4px; padding: 5px 10px; white-space: pre-wrap; }
+  .assistant { color: var(--fg); display: flex; gap: 9px; align-items: flex-start; }
+  .assistant .b { color: var(--fg); flex: none; line-height: 1.4; }
+  .assistant .txt { white-space: pre-wrap; }
+  .system { color: var(--dim); }
+  .status { color: var(--dim); }
+  .tool { margin: 7px 0; }
+  .tool .call .dot { color: var(--accent); }
+  .tool .call .name { font-weight: 700; }
+  .tool .call .arg { color: var(--dim); }
+  .tool .out { color: var(--dim); border-left: 1px solid var(--rule); margin: 4px 0 0 5px; padding: 2px 0 2px 12px; white-space: pre-wrap; }
+  .footer { margin-top: auto; }  /* pin input to the bottom — no empty "chin" when content is short */
+  .spinner { color: var(--accent); }
+  .footer hr { border: 0; border-top: 1px solid var(--rule); margin: 11px 0; }
+  .hint { color: var(--dimmer); }
+  .promptline { color: var(--dimmer); }
+  .promptline .typed { color: var(--fg); white-space: pre-wrap; }
+
+  @media (max-width: 760px) { body { grid-template-columns: 1fr; height: auto; } .window, #form { min-height: 340px; } }
+</style>
+</head>
+<body>
+  <div class="col">
+    <div class="label">Session editor</div>
+    <div id="form"></div>
+  </div>
+  <div class="col">
+    <div class="label labelrow"><span>Preview</span>
+      <span class="btns"><button class="b" id="play" type="button">▶ Play</button>
+      <button class="b" id="dl" type="button">Download PNG</button></span></div>
+    <div class="window">
+      <div class="titlebar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="name">claude — session</span>
+      </div>
+      <main id="app"></main>
+      <div class="resizer" id="resizer" title="Drag to resize"></div>
+    </div>
+  </div>
+
+<script>
+// ---- session model (edited via the form) ----
+const session = {
+  model: "Opus 4.8",
+  cwd: "~/acme",
+  thinking: true,               // false = Claude is done, no spinner
+  spinnerLabel: "Cerebrating",
+  hint: 'Try "refactor <filepath>"',
+  messages: [
+    { role: "user", text: "research where users are dropping off since the previous release (v4.2), and update the dashboard" },
+    { role: "assistant", text: "I'll pull the funnel data since v4.2 and see where the drop-off is, then wire it into the dashboard." },
+    { role: "tool", name: "Bash", arg: "git log --oneline v4.2..HEAD -- src/dashboard",
+      out: "a1f3c9e feat: add retention panel\n8b2e011 fix: funnel step ordering\n3d90a4c chore: bump analytics sdk" },
+    { role: "tool", name: "Read", arg: "src/dashboard/metrics.ts",
+      out: "export const FUNNEL_STEPS = [\n  'signup', 'onboard', 'first_action', 'activated'\n];" },
+    { role: "assistant", text: "The biggest cliff is between onboard → first_action: ~38% never take a first action after v4.2. Let me add that as a highlighted step on the dashboard." },
+    { role: "tool", name: "Edit", arg: "src/dashboard/Funnel.tsx", out: "+  <FunnelStep id=\"first_action\" alert={dropoff > 0.3} />" },
+    { role: "user", text: "nice — can you also break it down by signup source?" },
+    { role: "assistant system", text: "Called puppeteer" },
+    { role: "assistant", text: "Done — added a stacked breakdown by signup source to the funnel panel." },
+    { role: "status", text: "Sautéed for 50s" }
+  ]
+};
+
+// ================= form builders =================
+function elem(tag, cls, txt) { const n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; }
+
+// bound text/textarea field: typing updates the model + preview, no form rebuild (keeps focus)
+function field(labelTxt, value, onInput, opts = {}) {
+  const wrap = elem("label", "fld");
+  wrap.appendChild(elem("span", null, labelTxt));
+  const input = document.createElement(opts.area ? "textarea" : "input");
+  input.value = value || "";
+  if (opts.placeholder) input.placeholder = opts.placeholder;
+  input.oninput = () => { onInput(input.value); renderPreview(); };
+  wrap.appendChild(input);
+  return wrap;
+}
+
+function selectField(labelTxt, options, value, onChange, opts = {}) {
+  const wrap = opts.bare ? document.createElement("span") : elem("label", "fld");
+  if (!opts.bare) wrap.appendChild(elem("span", null, labelTxt));
+  const sel = document.createElement("select");
+  for (const o of options) { const op = elem("option", null, o); op.value = o; if (o === value) op.selected = true; sel.appendChild(op); }
+  sel.onchange = () => onChange(sel.value);
+  wrap.appendChild(sel);
+  return opts.bare ? sel : wrap;
+}
+
+function checkField(labelTxt, checked, onChange) {
+  const wrap = elem("label", "fld chk");
+  const box = document.createElement("input");
+  box.type = "checkbox"; box.checked = !!checked;
+  box.onchange = () => onChange(box.checked);
+  wrap.appendChild(box);
+  wrap.appendChild(elem("span", null, labelTxt));
+  return wrap;
+}
+
+function iconBtn(label, cls, onClick, disabled) {
+  const b = elem("button", "b icon " + (cls || ""), label);
+  b.type = "button"; b.disabled = !!disabled; b.onclick = onClick;
+  return b;
+}
+
+function messageCard(msg, i) {
+  const card = elem("div", "card");
+  const bar = elem("div", "bar");
+  bar.appendChild(selectField("", ["user", "assistant", "assistant system", "tool", "status"], msg.role, v => { msg.role = v; rebuild(); }, { bare: true }));
+  bar.appendChild(elem("span", "sp"));
+  bar.appendChild(iconBtn("↑", "", () => { move(i, -1); }, i === 0));
+  bar.appendChild(iconBtn("↓", "", () => { move(i, 1); }, i === session.messages.length - 1));
+  bar.appendChild(iconBtn("✕", "del", () => { session.messages.splice(i, 1); rebuild(); }));
+  card.appendChild(bar);
+
+  if (msg.role === "tool") {
+    card.appendChild(field("Tool", msg.name, v => msg.name = v, { placeholder: "Bash, Read, Edit…" }));
+    card.appendChild(field("Argument", msg.arg, v => msg.arg = v, { placeholder: "e.g. src/app.ts" }));
+    card.appendChild(field("Output", msg.out, v => msg.out = v, { area: true, placeholder: "tool output…" }));
+  } else {
+    card.appendChild(field("Text", msg.text, v => msg.text = v, { area: true }));
+  }
+  return card;
+}
+
+function move(i, dir) {
+  const j = i + dir;
+  if (j < 0 || j >= session.messages.length) return;
+  [session.messages[i], session.messages[j]] = [session.messages[j], session.messages[i]];
+  rebuild();
+}
+
+function buildForm() {
+  const f = document.getElementById("form");
+  f.innerHTML = "";
+  f.appendChild(elem("div", "section", "Session"));
+  f.appendChild(field("Model", session.model, v => session.model = v));
+  f.appendChild(field("Working directory", session.cwd, v => session.cwd = v));
+  f.appendChild(checkField("Thinking (show spinner)", session.thinking, v => { session.thinking = v; rebuild(); }));
+  if (session.thinking) f.appendChild(field("Spinner label", session.spinnerLabel, v => session.spinnerLabel = v));
+  f.appendChild(field("Input hint", session.hint, v => session.hint = v));
+
+  f.appendChild(elem("div", "section", "Messages"));
+  session.messages.forEach((m, i) => f.appendChild(messageCard(m, i)));
+  const add = elem("button", "b add", "+ Add message");
+  add.type = "button";
+  add.onclick = () => { session.messages.push({ role: "assistant", text: "" }); rebuild(); };
+  f.appendChild(add);
+
+  const clear = elem("button", "b add", "Clear messages");
+  clear.type = "button";
+  clear.onclick = () => { session.messages = []; rebuild(); };
+  f.appendChild(clear);
+}
+
+function rebuild() { buildForm(); renderPreview(); }
+
+// ================= preview =================
+function el(tag, cls, html) { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; }
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+function mascot() {
+  const P = 10;
+  const grid = [
+    ".XXXXXXX.",  // head top
+    ".X.XXX.X.",  // eyes
+    "XXXXXXXXX",  // arms out both sides
+    "XXXXXXXXX",  // arms / body
+    ".XXXXXXX.",  // lower body
+    ".X.X.X.X.",  // four legs
+  ];
+  const w = grid[0].length * P, h = grid.length * P;
+  let rects = "";
+  grid.forEach((row, y) => [...row].forEach((c, x) => { if (c === "X") rects += `<rect x="${x*P}" y="${y*P}" width="${P}" height="${P}"/>`; }));
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" fill="var(--accent)" shape-rendering="crispEdges">${rects}</svg>`;
+}
+
+function headerNode() {
+  return el("div", "header",
+    `${mascot()}<div><h1>Claude Code</h1><div class="meta">${esc(session.model)} · ${esc(session.cwd)}</div></div>`);
+}
+
+// one DOM node for a message — shared by static render and play mode
+function msgNode(m) {
+  if (m.role === "user")
+    return el("div", "msg user", `<span class="gutter">&rsaquo;</span><div class="bubble">${esc(m.text)}</div>`);
+  if (m.role === "status")
+    return el("div", "msg status", `✳ ${esc(m.text)}`);
+  if (m.role === "assistant system")
+    return el("div", "msg system", esc(m.text));
+  if (m.role === "tool") {
+    const tool = el("div", "msg tool");
+    tool.appendChild(el("div", "call",
+      `<span class="dot">⏺</span> <span class="name">${esc(m.name)}</span><span class="arg">(${esc(m.arg)})</span>`));
+    if (m.out) tool.appendChild(el("div", "out", esc(m.out)));
+    return tool;
+  }
+  return el("div", "msg assistant", `<span class="b">●</span><span class="txt">${esc(m.text)}</span>`);
+}
+
+function footerNode() {
+  const footer = el("div", "footer");
+  if (session.thinking) footer.appendChild(el("div", "spinner", `✳ ${esc(session.spinnerLabel)}…`));
+  footer.appendChild(el("hr"));
+  footer.appendChild(el("div", "hint", `&rsaquo; ${esc(session.hint)}`));
+  return footer;
+}
+
+function renderPreview() {
+  playToken++; // any static re-render cancels an in-progress animation
+  setPlayLabel(false);
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+  app.appendChild(headerNode());
+  for (const m of session.messages) app.appendChild(msgNode(m));
+  app.appendChild(footerNode());
+  try { localStorage.setItem(KEY, JSON.stringify(session)); } catch (e) {}
+}
+
+// ================= play (animate the session) =================
+let playToken = 0;
+const TYPE_MS = 28, THINK_MS = 700, STEP_MS = 350;
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+const alive = (my) => my === playToken;
+function setPlayLabel(playing) { document.getElementById("play").textContent = playing ? "⏹ Stop" : "▶ Play"; }
+
+async function typeInto(node, text, my) {
+  const app = document.getElementById("app");
+  for (let i = 0; i < text.length; i++) {
+    if (!alive(my)) return;
+    node.textContent = text.slice(0, i + 1);
+    app.scrollTop = app.scrollHeight;
+    await sleep(TYPE_MS);
+  }
+}
+
+async function play() {
+  if (document.getElementById("play").textContent.startsWith("⏹")) { renderPreview(); return; } // Stop
+  const my = ++playToken;
+  setPlayLabel(true);
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+  app.appendChild(headerNode());
+
+  // persistent input line pinned at the bottom — messages insert above it
+  const input = el("div", "footer",
+    `<hr><div class="promptline"><span class="chev">&rsaquo;</span> <span class="typed"></span><span class="ph">${esc(session.hint)}</span></div>`);
+  app.appendChild(input);
+  const typed = input.querySelector(".typed"), ph = input.querySelector(".ph");
+  const scroll = () => { app.scrollTop = app.scrollHeight; };
+  const add = (node) => { app.insertBefore(node, input); scroll(); };
+
+  const spinnerNode = () => el("div", "spinner", `✳ ${esc(session.spinnerLabel)}…`);
+  const think = async () => {
+    const sp = spinnerNode();
+    input.insertBefore(sp, input.firstChild); scroll(); // above the input's hr, pinned at bottom
+    await sleep(THINK_MS);
+    sp.remove();
+  };
+
+  let prevRole = null;
+  for (const m of session.messages) {
+    if (!alive(my)) return;
+    if (m.role === "user") {
+      ph.style.display = "none";                 // type into the input box…
+      await typeInto(typed, m.text || "", my);
+      if (!alive(my)) return;
+      await sleep(STEP_MS);
+      if (!alive(my)) return;
+      add(msgNode(m));                            // …then "send" → appears in the transcript
+      typed.textContent = ""; ph.style.display = "";
+    } else {
+      if (prevRole === "user" || m.role === "tool") { await think(); if (!alive(my)) return; }
+      add(msgNode(m));
+      await sleep(STEP_MS);
+    }
+    prevRole = m.role;
+  }
+  if (!alive(my)) return;
+  if (session.thinking) input.insertBefore(spinnerNode(), input.firstChild);
+  scroll();
+  setPlayLabel(false);
+}
+document.getElementById("play").onclick = play;
+
+// ---- drag the handle to resize the preview window height ----
+(() => {
+  const resizer = document.getElementById("resizer");
+  const win = document.querySelector(".window");
+  resizer.onpointerdown = (e) => {
+    e.preventDefault();
+    const startY = e.clientY, startH = win.offsetHeight;
+    resizer.setPointerCapture(e.pointerId);
+    const onMove = (ev) => {
+      const h = Math.max(220, Math.min(window.innerHeight - 40, startH + ev.clientY - startY));
+      win.style.height = h + "px";
+    };
+    const onUp = () => {
+      document.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerup", onUp);
+    };
+    document.addEventListener("pointermove", onMove);
+    document.addEventListener("pointerup", onUp);
+  };
+})();
+
+// ---- download preview as PNG (native: DOM -> SVG foreignObject -> canvas) ----
+function downloadPng() {
+  const win = document.querySelector(".window");
+  const app = document.getElementById("app");
+  const w = win.offsetWidth;
+  const h = win.querySelector(".titlebar").offsetHeight + app.scrollHeight; // full, un-clipped
+  const clone = win.cloneNode(true);
+  clone.querySelector(".resizer")?.remove(); // don't bake the drag handle into the image
+  clone.style.height = h + "px";
+  // clone lives in a bare <div>, not <body>, so it won't inherit body's font — set it explicitly
+  const bs = getComputedStyle(document.body);
+  clone.style.fontFamily = bs.fontFamily;
+  clone.style.fontSize = bs.fontSize;
+  clone.style.lineHeight = bs.lineHeight;
+  const ca = clone.querySelector("#app");
+  ca.style.overflow = "visible"; ca.style.height = "auto";
+  const css = [...document.styleSheets].map(s => {
+    try { return [...s.cssRules].map(r => r.cssText).join("\n"); } catch (e) { return ""; }
+  }).join("\n");
+  const xml = new XMLSerializer().serializeToString(clone);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">` +
+    `<foreignObject x="0" y="0" width="${w}" height="${h}">` +
+    `<div xmlns="http://www.w3.org/1999/xhtml"><style>${css}</style>${xml}</div>` +
+    `</foreignObject></svg>`;
+  const scale = 2;
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = w * scale; canvas.height = h * scale;
+    const ctx = canvas.getContext("2d");
+    ctx.scale(scale, scale);
+    ctx.drawImage(img, 0, 0);
+    canvas.toBlob(blob => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "claude-session.png";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  };
+  img.onerror = () => alert("Could not render image");
+  img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+document.getElementById("dl").onclick = downloadPng;
+
+// ---- persistence ----
+const KEY = "fakeClaudeSession";
+try {
+  const saved = localStorage.getItem(KEY);
+  if (saved) Object.assign(session, JSON.parse(saved));
+} catch (e) {}
+
+rebuild();
+</script>
+</body>
+</html>
